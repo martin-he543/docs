@@ -13,7 +13,7 @@
 ## August 2026
 
 #### August 11th, 2026 (Tuesday)
-
+**[Web Core App] New Grammar Exercise on Path**
 
 #### August 10th, 2026 (Monday)
 
@@ -39,3 +39,11 @@ Example sentence difficulty scoring is implemented on internal tools.
 
 **[Web Core App] Hide Mems and Example Sentences by Default**
 We are hiding Mems and Example Sentences by default on Web until better moderation of Mems, and the difficulty matching feature of Example Sentences are implemented (otherwise, some users might be overwhelmed by sentences much harder than their current proficiency level: we understand this, and hear you on this). You can still re-enable both from the settings menu on the top navbar.
+
+#### August 6th, 2026 (Thursday)
+
+#### August 5th, 2026 (Wednesday)
+
+#### August 4th, 2026 (Tuesday)
+
+#### August 3rd, 2026 (Monday)
