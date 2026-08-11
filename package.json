@@ -1,0 +1,15 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "Self-hosted gist-style docs site with an auto-generated markdown blog.",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/generate-post-index.mjs",
+    "dev": "python3 -m http.server 5500"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martin-he543/docs.git"
+  },
+  "license": "ISC"
+}
