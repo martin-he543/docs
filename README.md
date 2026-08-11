@@ -23,4 +23,10 @@ To add a post:
 3. Write the rest of the post as normal markdown below it.
 4. Push to `main`. A GitHub Action (`.github/workflows/update-post-index.yml`) regenerates `posts/index.json`, and the blog picks it up automatically.
 
-Run `npm run build` locally to regenerate `posts/index.json` yourself, and `npm run dev` to preview the site at `http://localhost:5500`.
+### Other sections
+
+`memrise/` is a second, independent blog section at `docs.martinhe.co.uk/memrise/` — same mechanism, but reading from its own `memrise/posts/` folder instead of `posts/`, so the two don't mix. Add posts there the same way.
+
+To add another section, copy `memrise/index.html` and `memrise/post.html`, point `window.BLOG_POSTS_DIR` at a new folder, and add that folder to `scripts/generate-post-index.mjs`'s targets in `package.json` and `.github/workflows/update-post-index.yml`.
+
+Run `npm run build` locally to regenerate every section's `index.json`, and `npm run dev` to preview the site at `http://localhost:5500`.

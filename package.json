@@ -4,7 +4,7 @@
   "description": "Self-hosted gist-style docs site with an auto-generated markdown blog.",
   "private": true,
   "scripts": {
-    "build": "node scripts/generate-post-index.mjs",
+    "build": "node scripts/generate-post-index.mjs posts && node scripts/generate-post-index.mjs memrise/posts",
     "dev": "python3 -m http.server 5500"
   },
   "repository": {

@@ -5,7 +5,8 @@ import path from "node:path";
 
 async function main() {
   const rootDir = process.cwd();
-  const postsDir = path.join(rootDir, "posts");
+  const relDir = process.argv[2] || "posts";
+  const postsDir = path.join(rootDir, relDir);
   const outputFile = path.join(postsDir, "index.json");
 
   const entries = await fs.readdir(postsDir, { withFileTypes: true });
@@ -18,7 +19,7 @@ async function main() {
   const payload = `${JSON.stringify(postFiles, null, 2)}\n`;
   await fs.writeFile(outputFile, payload, "utf8");
 
-  console.log(`Updated posts/index.json with ${postFiles.length} post(s).`);
+  console.log(`Updated ${relDir}/index.json with ${postFiles.length} post(s).`);
 }
 
 main().catch((error) => {
