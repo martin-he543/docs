@@ -18,6 +18,52 @@
     return d.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
   }
 
+  // Nests headings by level, regardless of how deep they go (h1-h6) or
+  // whether levels are skipped - same rule Wikipedia's TOC follows.
+  function buildTocTree(headings) {
+    var root = { level: 0, children: [] };
+    var stack = [root];
+    headings.forEach(function (h) {
+      var node = { level: h.level, id: h.id, text: h.text, children: [] };
+      while (stack.length > 1 && stack[stack.length - 1].level >= node.level) {
+        stack.pop();
+      }
+      stack[stack.length - 1].children.push(node);
+      stack.push(node);
+    });
+    return root.children;
+  }
+
+  function renderTocList(nodes) {
+    var html = "<ul>";
+    nodes.forEach(function (node) {
+      html += "<li><a href=\"#" + node.id + "\">" + escapeHtml(node.text) + "</a>";
+      if (node.children.length) html += renderTocList(node.children);
+      html += "</li>";
+    });
+    return html + "</ul>";
+  }
+
+  function renderToc(article) {
+    var toc = document.getElementById("toc");
+    if (!toc) return;
+
+    var headings = Array.prototype.slice
+      .call(article.querySelectorAll("h1, h2, h3, h4, h5, h6"))
+      .map(function (el) {
+        return { level: Number(el.tagName.charAt(1)), id: el.id, text: el.textContent };
+      });
+
+    if (headings.length < 2) {
+      toc.hidden = true;
+      toc.innerHTML = "";
+      return;
+    }
+
+    toc.hidden = false;
+    toc.innerHTML = '<p class="toc-title">Contents</p>' + renderTocList(buildTocTree(headings));
+  }
+
   var file = new URLSearchParams(window.location.search).get("post");
 
   if (!file) {
@@ -48,8 +94,12 @@
         (meta.summary ? '<p class="post-card-summary">' + escapeHtml(meta.summary) + "</p>" : "") +
         (meta.coverImage ? '<img src="' + postsDir + meta.coverImage + '" alt="">' : "") +
         '<article class="post-body">' + window.SimpleMarkdown.render(parsed.body) + "</article>";
+
+      renderToc(root.querySelector(".post-body"));
     })
     .catch(function (err) {
       root.innerHTML = '<p class="post-error">Couldn\'t load this post (' + escapeHtml(err.message) + ").</p>";
+      var toc = document.getElementById("toc");
+      if (toc) toc.hidden = true;
     });
 })();
