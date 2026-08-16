@@ -18,8 +18,6 @@
 
 Romeo and Juliet script
 
-::instrument
-
 **Martin:** Narrator
 
 **Seb:** Tybalt, random bystander and music+sounds (with help from everyone not acting)
@@ -30,39 +28,39 @@ Romeo and Juliet script
 
 **Theo:** Juliet and Benvolio
 
-*Drum roll*
+::instrument *Drum roll* ::/instrument
 
 **Narrator:** From the Maaaakkkkeeeeeersssss of the Matrix re-reloaded and frozen 2 ‘The melting’ comes Romeo and Juliet! Not suitable for viewers under the age of 62.
 
 It’s a timeless classic filled with romance!
 
-*Romeo and Juliet dance with their hands together*
+::instrument *Romeo and Juliet dance with their hands together* ::/instrument
 
 **Romeo:** Our hands have touched so logically our lips should also touch
 
 **Juliet:** What kind of logic is that?
 
-*Juliet slaps Romeo and both then leave the stage*
+::instrument *Juliet slaps Romeo and both then leave the stage* ::/instrument
 
 **Martin:** Action!
 
-*Benvolio and Tybalt have an intense rock paper scissors fight. After 3 draws (use rock) Tybalt wins with scissors and shanks Benvolio*
+::instrument *Benvolio and Tybalt have an intense rock paper scissors fight. After 3 draws (use rock) Tybalt wins with scissors and shanks Benvolio* ::/instrument
 
 **Tybalt:** Ah ha! Shank!
 
 **Benvolio:** Oh no now I am dead, I should have listened to my astrologer, he warned me it was a bad day to leave the house today!
 
-*Everyone off stage*
+::instrument *Everyone off stage* ::/instrument
 
 **Narrator:** Moree action!
 
-*Tybalt and Romeo have a fight exactly the same as Tybalt and Benvolio however Romeo wins and shanks Tybalt*
+::instrument *Tybalt and Romeo have a fight exactly the same as Tybalt and Benvolio however Romeo wins and shanks Tybalt* ::/instrument
 
 **Romeo:** Take that! Shank!
 
 **Tybalt:** Alas I am now dead, I too should have listened to my astrologer, he too warned me that it was a bad idea to leave the house today
 
-*All offstage*
+::instrument *All offstage* ::/instrument
 
 **Narrator:** Court proceedings!
 
@@ -76,11 +74,11 @@ It’s a timeless classic filled with romance!
 
 **Paris:** Your parents think you are sad Juliet so to make you feel better they thought they would let you, a teenager, be married to me, a 56 year old man.
 
-*Juliet facepalms*
+::instrument *Juliet facepalms* ::/instrument
 
 **Martin:** Illegal substances!
 
-*Romeo walks up to bartender who is cleaning imaginary glasses*
+::instrument *Romeo walks up to bartender who is cleaning imaginary glasses* ::/instrument
 
 **Bartender:** You’re not from around here are you?
 
@@ -94,13 +92,15 @@ It’s a timeless classic filled with romance!
 
 **Romeo:** Montague, Romeo Montague
 
-*Bartender gasps*
+::instrument *Bartender gasps* ::/instrument
 
 **Romeo:** One poison please shaken not stirred!
 
+::instrument
 *Bartender makes Romeo’s drink and then stirs it before handing it over*
 
 *All exit*
+::/instrument
 
 **Narrator:** Plans!
 
@@ -108,49 +108,47 @@ It’s a timeless classic filled with romance!
 
 I just hope Romeo doesn’t think I am actually dead and then kills himself by my tomb befiore I awake, cos that would be AWKWARD:?
 
-*Juliet drinks potion and then falls asleep*
+::instrument *Juliet drinks potion and then falls asleep* ::/instrument
 
 **Martin:** Misunderstandings!
 
 **Romeo:** Its Juliet! NOOOOOOOOOOOOOOOOOOOOOOOOOOO, She doesn’t look very dead though. She just looks like she took a sleeping draught as part of an elaborate plan to get us back together. Anyway where was I? oh yeah NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.
 
-*Stabs himself*
+::instrument *Stabs himself* ::/instrument
 
 **Martin:** More misunderstandings!
 
-*Juliet awakes and yawns, then notices Romeo.*
+::instrument *Juliet awakes and yawns, then notices Romeo.* ::/instrument
 
 **Juliet:** He is dead oh no I cannot live without him
 
-*Grabs Romeo’s dagger*
+::instrument *Grabs Romeo’s dagger* ::/instrument
 
 **Juliet:** Oh sweet dagger
 
-*Stabs herself but the dagger just bounces off.*
+::instrument *Stabs herself but the dagger just bounces off.* ::/instrument
 
 **Juliet:** Call this a knife?
 
-*In frustration she stabs the knife into Romeo who screams*
+::instrument *In frustration she stabs the knife into Romeo who screams* ::/instrument
 
 **Romeo:** Arrgh, I wasn’t dead yet!
 
 **Juliet:** Oh no!
 
-*She grabs a random gun from the ground*
+::instrument *She grabs a random gun from the ground* ::/instrument
 
 **Juliet:** Goodbye cruel world!
 
-*Shoots herself and falls to the ground*
+::instrument *Shoots herself and falls to the ground* ::/instrument
 
 **Martin:** Now available in selected cinemas so bad this was the only film they could afford
 
-::
-
-___
+---
 
 ## Little Red Riding Hood - Adaptation
 
-___
+---
 
 Starring
 
@@ -166,31 +164,29 @@ Mocking-Jay
 
 Broomstick Brennan
 
-___
-
-::instrument
+---
 
 **Narrator:** Our story starts in a time long long ago, in the year 2014, in a place far away called New Malden…
 
-**Wolf:** *(annoyingly high voice)* Lalalalala I’m hungry, and since it’s the 21st Century, I shall go to Lidl.
+**Wolf:** ::instrument *(annoyingly high voice)* ::/instrument Lalalalala I’m hungry, and since it’s the 21st Century, I shall go to Lidl.
 
-*(Walks to Lidl)*
+::instrument *(Walks to Lidl)* ::/instrument
 
-**Cleaner:** *(Yorkshire)* Is that a wo-olf in a dress?
+**Cleaner:** ::instrument *(Yorkshire)* ::/instrument Is that a wo-olf in a dress?
 
-**Other Person:** *(Essex)* Nah mate, can’t be, since the 2003 Animal Cruelty Act, ‘peeps aren’t allowed to dress wolfs in people clothes.
+**Other Person:** ::instrument *(Essex)* ::/instrument Nah mate, can’t be, since the 2003 Animal Cruelty Act, ‘peeps aren’t allowed to dress wolfs in people clothes.
 
 **Cleaner:** Ya I get that, but do people ‘ave menacing claws?
 
 **Other Person:** Brah, I read in ‘da Sun sum tiem ago ‘dat ‘liek 80% of british ‘peeps ‘ave ‘ad plastic surgery.
 
-*(Cleaner stares at Other Person checking for signs of plastic surgery)*
+::instrument *(Cleaner stares at Other Person checking for signs of plastic surgery)* ::/instrument
 
 **Cleaner:** What ya lewkin’ at meight?
 
 **Other Person:** Just ‘earching for plastic unmentionables ‘of ‘yours ‘ya know 80% an’‘ll?
 
-**Narrator:** *(sidestepping across scene while everything changes)* MEANWHILEEEEEEEE:
+**Narrator:** ::instrument *(sidestepping across scene while everything changes)* ::/instrument MEANWHILEEEEEEEE:
 
 **Wolf:** Twennie-one pence?
 
@@ -198,7 +194,7 @@ ___
 
 **Wolf:** Why would I want to eat these ‘vegetables?’ I think I’ll have sumting else instead.
 
-*(Wolf exits now-wrecked store)*
+::instrument *(Wolf exits now-wrecked store)* ::/instrument
 
 **Other Person:** What’s ‘is ‘roblem?
 
@@ -206,19 +202,21 @@ ___
 
 **Other Person:** Should’ve gone to Specsavers.
 
+::instrument
 *(Wolf walks in search of food: In the distance, he can hear someone dancing to ‘Anaconda’, walks towards house)*
 
 *(Random Girl knocks on door (x3))*
+::/instrument
 
-**Random Girl:** Do you wanna raise money for Lepra? *(Do you wanna build a snowman tune)*
+**Random Girl:** Do you wanna raise money for Lepra? ::instrument *(Do you wanna build a snowman tune)* ::/instrument
 
-**Grandma:** *(gruffly on “Lepra”)* No
+**Grandma:** ::instrument *(gruffly on “Lepra”)* ::/instrument No
 
-*(Grandma shuts the door in her face, Random Girl starts crying)*
+::instrument *(Grandma shuts the door in her face, Random Girl starts crying)* ::/instrument
 
 **Wolf:** Hey, move, ‘lil gurl.
 
-*(Wolf knocks on door (three times like Sheldon))*
+::instrument *(Wolf knocks on door (three times like Sheldon))* ::/instrument
 
 **Wolf:** Anonymous person, Anonymous person, Anonymous person
 
@@ -228,21 +226,23 @@ ___
 
 **Grandma:** Well, you wanna go son? You wanna?
 
+::instrument
 *(Wolf chases Grandma)*
 
 *(Wolf eats Grandma)*
+::/instrument
 
 **Wolf:** Finally, I knew I should’nt’ve gone to McDonalds.
 
-*(RRH knocks on the door, pushing Random Girl out of the way)*
+::instrument *(RRH knocks on the door, pushing Random Girl out of the way)* ::/instrument
 
-**Wolf:** *(quietly)* Oh Crap, I should’ve.
+**Wolf:** ::instrument *(quietly)* ::/instrument Oh Crap, I should’ve.
 
-*(door opens)*
+::instrument *(door opens)* ::/instrument
 
 **RRH:** Hello grandma.
 
-*(Awkward silence)*
+::instrument *(Awkward silence)* ::/instrument
 
 **RRH:** Well Grandma, what nice furry coat you have!
 
@@ -264,7 +264,7 @@ ___
 
 **Narrator:** And she chucked her sandal as he took his last breath, it punctured his face causing his death, and just to make sure that he was dead, she chucked a mace right in t’wads his dead. Then came a pistols introduction, to turn this place into a path of destruction. So in no less than one day shorter, New Malden had turned into a scene of slaughter.
 
-*(Police car noises)*
+::instrument *(Police car noises)* ::/instrument
 
 **Police Man:** PUT UR HANDS IN THE AIR
 
@@ -274,13 +274,11 @@ ___
 
 **RRH:** Not for long bruv.
 
-*James Bond theme starts. Secret guy hidden in curtains comes out with a gun, puts it in his pocket and RKOs the policeman*
+::instrument *James Bond theme starts. Secret guy hidden in curtains comes out with a gun, puts it in his pocket and RKOs the policeman* ::/instrument
 
 **RRH:** THAT’LL TEACH ‘IM TO MESS WITH GHOSTBUSTERS
 
-*Cue Ghostbusters theme*
-
-::
+::instrument *Cue Ghostbusters theme* ::/instrument
 
 ## Act 3 Scene 1 Midsummer's Modern Dream
 
@@ -299,23 +297,21 @@ CHARACTERS + SYMBOLS:
 
 ---
 
-::instrument
-
 Are we all met?
 
-*(Everyone on Phones)*
+::instrument *(Everyone on Phones)* ::/instrument
 
 Are we all met?
 
 What the hell is that supposed to mean? We ain't no Shakespearian actors now are we. BTW everyone's on their iPhones m9.
 
-*(Crossy Road Sound)*
+::instrument *(Crossy Road Sound)* ::/instrument
 
 OK, I've had it, all iPhones away.
 
 Aaaaaaah.
 
-*(all stare towards Windows Phone user)*
+::instrument *(all stare towards Windows Phone user)* ::/instrument
 
 I have a Windows Phone.
 
@@ -329,13 +325,13 @@ Sure, but Mr Smarty-Pants, where do you expect to find Wi-Fi in the middle of a 
 
 Apart from 21st century America.
 
-*(Thinks)*
+::instrument *(Thinks)* ::/instrument
 
 My Phone doesn't have email.
 
-*(in unison)* That's because it's a Nokia Brick.
+::instrument *(in unison)* ::/instrument That's because it's a Nokia Brick.
 
-*(realises no Wi-Fi)* No Wi-Fi? I think I'm going to faint. *(faints)*
+::instrument *(realises no Wi-Fi)* ::/instrument No Wi-Fi? I think I'm going to faint. ::instrument *(faints)* ::/instrument
 
 Hey, m8s, what if people like think I actually kill myself and that.
 
@@ -377,13 +373,13 @@ Will the moon be shining on the night we perform the play?
 
 Get an almanac. Quick!
 
-It's not the Stone Age, Quince. I've got Wikipedia on my phone.... *(facial change)* Oh, no Wi-Fi?
+It's not the Stone Age, Quince. I've got Wikipedia on my phone.... ::instrument *(facial change)* ::/instrument Oh, no Wi-Fi?
 
 It don't even matter no more. There ain't no moon. Look at the pollution in the sky.
 
 How 'bout I use my Windows Phone Flashlight app?
 
-*(in unison)* No-one likes Windows Phone!
+::instrument *(in unison)* ::/instrument No-one likes Windows Phone!
 
 Let's use the iPhone app instead. But there's still one more problem. We need a wall in the grand hall for when Pyramus and Thisbe talked through a little hole in a wall.
 
@@ -393,7 +389,7 @@ I'd say someone should act as wall.
 
 Wait, I've got Wi-Fi!
 
-*(everyone in unison)* Phewww.
+::instrument *(everyone in unison)* ::/instrument Phewww.
 
 B&Q does 1 day delivery. Is that good enough for you?
 
@@ -403,45 +399,45 @@ Homebase?
 
 That's good enough for me. Now everyone, rehearse your parts. Pyramus you are first.
 
-*PUCK enters.*
+::instrument *PUCK enters.* ::/instrument
 
 That are these peeps swaggering here so close to the fairy queen. Are they putting on a play.
 
 3, 2, 1, ACTION!
 
-*(as Pyramus)* Blah blah flowers blah blah odour blah blah.
+::instrument *(as Pyramus)* ::/instrument Blah blah flowers blah blah odour blah blah.
 
-*(as Pyramus)* Blah Blah, wait I heard something! I'll be back soon.
+::instrument *(as Pyramus)* ::/instrument Blah Blah, wait I heard something! I'll be back soon.
 
-*BOTTOM exits.*
+::instrument *BOTTOM exits.* ::/instrument
 
 Looks like I'll do something #random.
 
-*ROBIN exits.*
+::instrument *ROBIN exits.* ::/instrument
 
 Are I suppose to speak?
 
-Yes, but Bottom thinks he has discovered a wild Pokémon! *(sarcastically)*
+Yes, but Bottom thinks he has discovered a wild Pokémon! ::instrument *(sarcastically)* ::/instrument
 
-Ok. *(gets out his iPhone 5S)*
+Ok. ::instrument *(gets out his iPhone 5S)* ::/instrument
 
-*ROBIN enters with BOTTOM, with a donkey's head instead of a human head.*
+::instrument *ROBIN enters with BOTTOM, with a donkey's head instead of a human head.* ::/instrument
 
-*(as PYRAMUS)* If I were fair, Thisbe, I were only thine.
+::instrument *(as PYRAMUS)* ::/instrument If I were fair, Thisbe, I were only thine.
 
 What has happened to you, Bottom? But first, let me take a Selfie! This is going straight on Instagram!
 
-*(selfie taken)* Wait what...
+::instrument *(selfie taken)* ::/instrument Wait what...
 
 Help! It's a monster! We're being haunted. Run, everyone, run!
 
-*PUCK, QUINCE, FLUTE, SNUG, SNOUT, and STARVELING exit*
+::instrument *PUCK, QUINCE, FLUTE, SNUG, SNOUT, and STARVELING exit* ::/instrument
 
 What on earth is happening? What do you they I've got on my head?
 
 I see what they're up to. They want to make an ass of me, to scare me if they can. But I won't leave this spot, no matter what they do. I'll walk up and down and sing a song, so they'll know I'm not afraid.
 
-*(singing)*
+::instrument *(singing)* ::/instrument
 
 I came in on a wrecking ball,
 
@@ -451,11 +447,11 @@ All I wanted was to break your walls,
 
 All you ever did was, wre-e-eck me?
 
-*(,etc.)*
+::instrument *(,etc.)* ::/instrument
 
 Who wakes me from my sleep?
 
-*(carries on singing)*
+::instrument *(carries on singing)* ::/instrument
 
 On the first view to say, to swear, I love thee.
 
@@ -465,9 +461,7 @@ Thou art as wise as thou art beautiful.
 
 You sound Medieval.
 
-Don't bother wishing you could leave the forest, because you're going to stay here forever *(Mr Burns voice.)* And I'll turn you into a fairy. Come here Peasebottom, Cobweb, Moth and MustardSeed!
-
-::
+Don't bother wishing you could leave the forest, because you're going to stay here forever ::instrument *(Mr Burns voice.)* ::/instrument And I'll turn you into a fairy. Come here Peasebottom, Cobweb, Moth and MustardSeed!
 
 ## Haunted House, Year 7
 
@@ -489,51 +483,53 @@ Don't bother wishing you could leave the forest, because you're going to stay he
 - **P1** = Phantom #1
 - **S1** = Creepy #1
 
-::instrument
-
 ### Scene 1: Haunted House Arrival
 
-*(MC1 is dared by MC2 to visit the haunted house. Thinking he is trying to scare you as a trick, MC1 follows and adheres to these terms and agrees to go down to the house with MC2.)*
+::instrument *(MC1 is dared by MC2 to visit the haunted house. Thinking he is trying to scare you as a trick, MC1 follows and adheres to these terms and agrees to go down to the house with MC2.)* ::/instrument
 
 #### Part 1: Arrival
 
-*(Close to scene of MC1 and MC2 walking to the haunted house.)*
+::instrument *(Close to scene of MC1 and MC2 walking to the haunted house.)* ::/instrument
 
-**MC2:** Are you scared? *(emphasise the word scared)*
+**MC2:** Are you scared? ::instrument *(emphasise the word scared)* ::/instrument
 
-*(Stomping feet, head down)*
+::instrument *(Stomping feet, head down)* ::/instrument
 
-**MC1:** No, I ain’t scared, can you please shut up now? *(emphasising now and asking as if tired of listening to him and really bored)*
+**MC1:** No, I ain’t scared, can you please shut up now? ::instrument *(emphasising now and asking as if tired of listening to him and really bored)* ::/instrument
 
+::instrument
 *(Wait for an awkward silence, soon haunted house comes into view)*
 
 *(Pause)*
+::/instrument
 
-**MC2:** Well, here we are! Are you... *(interrupted by MC1)* *(mockingly and enthusiastically)*
+**MC2:** Well, here we are! Are you... ::instrument *(interrupted by MC1)* ::/instrument ::instrument *(mockingly and enthusiastically)* ::/instrument
 
-*(Come in immediately, turn to look at MC2)*
+::instrument *(Come in immediately, turn to look at MC2)* ::/instrument
 
-**MC1:** Shut up! You’ve been like this all afternoon! *(angrily, growing amount of anger)*
+**MC1:** Shut up! You’ve been like this all afternoon! ::instrument *(angrily, growing amount of anger)* ::/instrument
 
-*(MC2 opens the gate, G1/Z1/P1/S1 ______, makes door creak sound)*
+::instrument *(MC2 opens the gate, G1/Z1/P1/S1 ______, makes door creak sound)* ::/instrument
 
 #### Part 2: Front Door
 
-**MC2:** Ladies first. After you! *(insistently)*
+**MC2:** Ladies first. After you! ::instrument *(insistently)* ::/instrument
 
-**MC1:** No, after you! *(mockingly, and slightly louder)*
+**MC1:** No, after you! ::instrument *(mockingly, and slightly louder)* ::/instrument
 
-**MC2:** No after you! *(much louder, nearly shouting, insistently)*
+**MC2:** No after you! ::instrument *(much louder, nearly shouting, insistently)* ::/instrument
 
-**MC1:** No, *(pause)* after you! *(crescendoing towards the end, shouting loudly and naggingly)*
+**MC1:** No, ::instrument *(pause)* ::/instrument after you! ::instrument *(crescendoing towards the end, shouting loudly and naggingly)* ::/instrument
 
-*(Shout ‘Sure!’)*
+::instrument *(Shout ‘Sure!’)* ::/instrument
 
-**MC2:** Sure! ‘Cos I’m not scared! *(taking advantage of MC1’s insistence)*
+**MC2:** Sure! ‘Cos I’m not scared! ::instrument *(taking advantage of MC1’s insistence)* ::/instrument
 
+::instrument
 *(MC2 runs and goes inside haunted house opening the door)*
 
 *(Pause)*
+::/instrument
 
 **MC1:** Hey! Wait for me!
 
@@ -541,73 +537,83 @@ Don't bother wishing you could leave the forest, because you're going to stay he
 
 #### Part 1: Scared!
 
+::instrument
 *(MC1 and MC2 are in the house, notice the cobwebs everywhere and the absence of light.)*
 
 *(G1/Z1/P1/S1 ______ imitate sound of door closing behind them)*
+::/instrument
 
-**MC1:** Where are we? It’s getting pretty dark now. *(reluctantly taking a step in)*
+**MC1:** Where are we? It’s getting pretty dark now. ::instrument *(reluctantly taking a step in)* ::/instrument
 
-**MC2:** How am I suppose to know? *(saying as a question)*
+**MC2:** How am I suppose to know? ::instrument *(saying as a question)* ::/instrument
 
+::instrument
 *(Lights flicker, come on, then off, then on, revealing a door ahead)*
 
 *(Pause, say line shocked.)*
+::/instrument
 
 **MC2:** God! What was that? With the lights?
 
-*(G1 appears, scares MC2)*
+::instrument *(G1 appears, scares MC2)* ::/instrument
 
 **MC1:** Are you scared?
 
-*(Suddenly, G1 jumps up at MC2, MC2 screams)*
+::instrument *(Suddenly, G1 jumps up at MC2, MC2 screams)* ::/instrument
 
+::instrument
 *Freeze-frame, thought*
 
 *(Everybody freezes, but G1 gets up and says:)*
+::/instrument
 
 **G1:** What are these idiots doing in my haunted house?
 
-*(G1 returns to freeze frame, freeze frame ends)*
+::instrument *(G1 returns to freeze frame, freeze frame ends)* ::/instrument
 
-*Thought ends*
+::instrument *Thought ends* ::/instrument
 
-**G1:** *(speaks an ununderstandable dialect)*
+**G1:** ::instrument *(speaks an ununderstandable dialect)* ::/instrument
 
-**MC2:** Let’s get out of here, quick! *(hastily)*
+**MC2:** Let’s get out of here, quick! ::instrument *(hastily)* ::/instrument
 
-*(MC1 and MC2 hastily run to the door which was revealed by the sudden return of light)*
+::instrument *(MC1 and MC2 hastily run to the door which was revealed by the sudden return of light)* ::/instrument
 
 #### Part 2: Unexpected Encounter
 
-*(Panting, out of breath, MC1 and MC2)*
+::instrument *(Panting, out of breath, MC1 and MC2)* ::/instrument
 
 **MC2:** Safe at last!
 
-*(Z1 and P1 enter)*
+::instrument *(Z1 and P1 enter)* ::/instrument
 
-**Z1:** errrrrrrrrrrr! *(mumbling)*
+**Z1:** errrrrrrrrrrr! ::instrument *(mumbling)* ::/instrument
 
-*(louder)*
+::instrument *(louder)* ::/instrument
 
-**P1:** errrrrrrrrrrr! *(directing towards MC1 and MC2, G1 enters)*
+**P1:** errrrrrrrrrrr! ::instrument *(directing towards MC1 and MC2, G1 enters)* ::/instrument
 
 **Z1, P1, G1:** errrrrrrrrrrr!
 
-*(MC1 and MC2 look horrified)*
+::instrument *(MC1 and MC2 look horrified)* ::/instrument
 
+::instrument
 *Freeze-frame, thought*
 
 *(Everybody freezes, but Z1 gets up and says:)*
+::/instrument
 
 **Z1:** So these are those idiots ___________ warned me about!
 
-*(G1 returns to freeze frame, P1 gets up)*
+::instrument *(G1 returns to freeze frame, P1 gets up)* ::/instrument
 
 **P1:** Who are these people anyway! This is awkward!
 
+::instrument
 *(G1 returns to freeze frame, freeze frame ends.)*
 
 *Thought ends*
+::/instrument
 
 **Z1, G1, P1:** Get out of here!
 
@@ -615,19 +621,21 @@ Don't bother wishing you could leave the forest, because you're going to stay he
 
 #### Part 1: Loss
 
+::instrument
 *(MC1 and MC2 are chased out by Z1, G1 and P1)*
 
 *(Suddenly, S1 jumps up at MC1 and tackles him to the ground)*
+::/instrument
 
 **S1:** Muahahahaha!
 
+::instrument
 *(S1 ‘kills’ MC1, G1 stays with MC1 while others chase MC2 out)*
 
 *(MC2, traumatised, runs out, scene ends)*
+::/instrument
 
-::
-
-___
+---
 
 ## English Drama Script
 
@@ -635,17 +643,17 @@ ___
 
 These two are roommates with the older already in Cambridge (Sebastian.) Benedict has applied to Cambridge and is receiving the letter soon
 
-___
+---
 
 ::instrument
-
 *(Enter Sebastian)*
 
 *(S picks up mail)*
+::/instrument
 
 **S:** Mail... Mail... Driving licence... Junk... Cambridge!
 
-*(Opens letter and reads aloud)*
+::instrument *(Opens letter and reads aloud)* ::/instrument
 
 Dear Mr Benedict Batchcoombe,
 
@@ -657,9 +665,11 @@ Sepp Blatter, Head of Application
 
 Oh... Benedict.
 
+::instrument
 *(Enter Benedict, sleepily)*
 
 *(He sees the mail and gets excited)*
+::/instrument
 
 **B:** Has it arrived yet, my Cambridge letter.
 
@@ -675,11 +685,11 @@ Oh... Benedict.
 
 **B:** Fine. Let’s go.
 
-*(They leave and go and sit down outside a café.)*
+::instrument *(They leave and go and sit down outside a café.)* ::/instrument
 
 **B:** So...
 
-*(S sighs and is about to hand over the letter)*
+::instrument *(S sighs and is about to hand over the letter)* ::/instrument
 
 **B:** How was your invitation to Cambridge?
 
@@ -687,15 +697,15 @@ Oh... Benedict.
 
 **B:** Can I see my letter...
 
-**S:** *(Sighs and hands over blank paper.)*
+**S:** ::instrument *(Sighs and hands over blank paper.)* ::/instrument
 
 **B:** It’s blank.
 
-**S:** *(Sighs)* Fine...
+**S:** ::instrument *(Sighs)* ::/instrument Fine...
 
-*(S hands over the real paper.)*
+::instrument *(S hands over the real paper.)* ::/instrument
 
-**B:** *(reads for a few seconds, cries)* my life is ruined! There is no point in living!
+**B:** ::instrument *(reads for a few seconds, cries)* ::/instrument my life is ruined! There is no point in living!
 
 **S:** It isn’t that bad. You can reapply next year.
 
@@ -715,10 +725,8 @@ Oh... Benedict.
 
 **S:** Come on. Cheer up. At least you got into UCL.
 
-**B:** *(Cheers up a bit.)* I did?
+**B:** ::instrument *(Cheers up a bit.)* ::/instrument I did?
 
 **S:** Yes. The letter came a few days ago. I didn’t want to tell you until we got the Cambridge one. Come on, be hopeful. Look to the future. You could get in later. You might even get to do a post doc there. Count your blessings! Now come on, your coffee is cold.
 
-::
-
-___
+---

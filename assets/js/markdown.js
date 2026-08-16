@@ -1,7 +1,7 @@
 // Minimal, dependency-free markdown -> HTML renderer for the blog.
 // Supports headings, bold/italic, inline code, links, images, fenced code
 // blocks, blockquotes, ordered/unordered lists, horizontal rules, and
-// ::instrument ... :: font switches.
+// ::instrument ... ::/instrument font switches.
 // Not a full CommonMark implementation - just enough for blog posts.
 (function () {
   "use strict";
@@ -101,6 +101,11 @@
     out = out.replace(/\*\*([^*]+)\*\*/g, function (_, s) { return stash("<strong>" + s + "</strong>"); });
     out = out.replace(/\*([^*]+)\*/g, function (_, s) { return stash("<em>" + s + "</em>"); });
 
+    // Font switch: ::instrument … ::/instrument (inline)
+    out = out.replace(/::(\w+)\s+([\s\S]*?)::\/\1/g, function (_, name, inner) {
+      return stash('<span class="font-' + name.toLowerCase() + '">' + inner + "</span>");
+    });
+
     out = out.replace(/\x00(\d+)\x00/g, function (_, idx) {
       return placeholders[Number(idx)];
     });
@@ -152,19 +157,20 @@
         continue;
       }
 
-      // Font switch: ::instrument ... ::
+      // Font switch block: ::instrument ... ::/instrument
+      var fontClose = line.trim().match(/^::\/(\w+)\s*$/);
+      if (fontClose) {
+        flushParagraph();
+        closeLists();
+        html.push("</div>");
+        i++;
+        continue;
+      }
       var fontOpen = line.trim().match(/^::(\w+)\s*$/);
       if (fontOpen) {
         flushParagraph();
         closeLists();
         html.push('<div class="font-' + fontOpen[1].toLowerCase() + '">');
-        i++;
-        continue;
-      }
-      if (line.trim() === "::") {
-        flushParagraph();
-        closeLists();
-        html.push("</div>");
         i++;
         continue;
       }
