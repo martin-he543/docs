@@ -96,19 +96,23 @@
       return '<span class="chg-tag chg-tag--' + slug + '">' + tag + "</span>";
     });
 
+    // Font switch first so inner *italic* / **bold** still match.
+    // Stash only the tags; leaving inner in place avoids nested
+    // placeholders that a single expand pass would print as "0".
+    out = out.replace(/::(\w+)\s+([\s\S]*?)::\/\1/g, function (_, name, inner) {
+      return stash('<span class="font-' + name.toLowerCase() + '">') + inner.trim() + stash("</span>");
+    });
+
     // Bold + italic
     out = out.replace(/\*\*\*([^*]+)\*\*\*/g, function (_, s) { return stash("<strong><em>" + s + "</em></strong>"); });
     out = out.replace(/\*\*([^*]+)\*\*/g, function (_, s) { return stash("<strong>" + s + "</strong>"); });
     out = out.replace(/\*([^*]+)\*/g, function (_, s) { return stash("<em>" + s + "</em>"); });
 
-    // Font switch: ::instrument … ::/instrument (inline)
-    out = out.replace(/::(\w+)\s+([\s\S]*?)::\/\1/g, function (_, name, inner) {
-      return stash('<span class="font-' + name.toLowerCase() + '">' + inner + "</span>");
-    });
-
-    out = out.replace(/\x00(\d+)\x00/g, function (_, idx) {
-      return placeholders[Number(idx)];
-    });
+    while (/\x00\d+\x00/.test(out)) {
+      out = out.replace(/\x00(\d+)\x00/g, function (_, idx) {
+        return placeholders[Number(idx)];
+      });
+    }
 
     return out;
   }
