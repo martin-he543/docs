@@ -595,7 +595,7 @@ article.post-body h6 {
   .site-search-results { width: 90vw; right: -0.5rem; }
 }
 
-/* ---- Gooey bubble background ---- */
+/* ---- Metaball bubble background (ray-marched, cursor trail) ---- */
 
 .bubbles-canvas {
   position: fixed;
@@ -607,8 +607,6 @@ article.post-body h6 {
 }
 
 .bubbles-canvas.is-active { opacity: 1; }
-
-#bubbles-goo { filter: url(#bubbles-goo-filter); }
 
 .bubbles-toggle-bar {
   display: flex;

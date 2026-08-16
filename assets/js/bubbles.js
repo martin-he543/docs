@@ -1,152 +1,293 @@
 (function () {
   "use strict";
 
-  // Floating, gooey bubble background - loosely inspired by the interactive
-  // blob animation on https://henrikkvamme.no. Two stacked canvases: a
-  // blurred + alpha-thresholded "goo" layer that makes overlapping bubbles
-  // merge into blobs, and a crisp "shine" layer drawn on top for glossy
-  // specular highlights (the shine layer must stay outside the goo filter or
-  // the blur/threshold would smear the highlights into the blob).
+  // Vanilla WebGL port of the hero metaballs on https://henrikkvamme.no
+  // (https://github.com/henrikkvamme/portfolio — apps/web/src/components/metaball.tsx).
+  // Ray-marched spheres, exponential smooth-min (join/break), and a spring-followed
+  // cursor trail. Misses are transparent so the page theme shows through.
 
   var STORAGE_KEY = "bubbles-enabled";
-  var HUES = [212, 258, 152, 340, 32, 190, 280]; // blue, violet, green, pink, amber, cyan, purple
+  var TRAIL_LENGTH = 15;
+  var TRAIL_SHIFT_INTERVAL_S = 0.03;
+  var SPRING_STIFFNESS = 80;
+  var SPRING_DAMPING = 7;
+  var MAX_LAG_DISTANCE = 0.4;
+  var MAX_DT_S = 1 / 30;
 
-  var gooCanvas, shineCanvas, gooCtx, shineCtx, toggle;
-  var bubbles = [];
-  var width = 0, height = 0, dpr = 1;
-  var mouse = { x: -9999, y: -9999, active: false };
+  var VERT = [
+    "attribute vec3 position;",
+    "void main() {",
+    "  gl_Position = vec4(position, 1.0);",
+    "}"
+  ].join("\n");
+
+  var FRAG = [
+    "precision highp float;",
+    "",
+    "const int TRAIL_LENGTH = 15;",
+    "const float EPS = 1e-4;",
+    "const int ITR = 16;",
+    "",
+    "uniform float uTime;",
+    "uniform vec2 uResolution;",
+    "uniform vec2 uPointerTrail[TRAIL_LENGTH];",
+    "",
+    "vec3 normalizedToShader(float x, float y, float z) {",
+    "  float aspectRatio = uResolution.x / uResolution.y;",
+    "  return vec3((x * 2.0 - 1.0) * aspectRatio, y * 2.0 - 1.0, z);",
+    "}",
+    "",
+    "float rnd3D(vec3 p) {",
+    "  return fract(sin(dot(p, vec3(12.9898, 78.233, 37.719))) * 43758.5453123);",
+    "}",
+    "",
+    "float noise3D(vec3 p) {",
+    "  vec3 i = floor(p);",
+    "  vec3 f = fract(p);",
+    "  float a000 = rnd3D(i);",
+    "  float a100 = rnd3D(i + vec3(1.0, 0.0, 0.0));",
+    "  float a010 = rnd3D(i + vec3(0.0, 1.0, 0.0));",
+    "  float a110 = rnd3D(i + vec3(1.0, 1.0, 0.0));",
+    "  float a001 = rnd3D(i + vec3(0.0, 0.0, 1.0));",
+    "  float a101 = rnd3D(i + vec3(1.0, 0.0, 1.0));",
+    "  float a011 = rnd3D(i + vec3(0.0, 1.0, 1.0));",
+    "  float a111 = rnd3D(i + vec3(1.0, 1.0, 1.0));",
+    "  vec3 u = f * f * (3.0 - 2.0 * f);",
+    "  float k0 = a000;",
+    "  float k1 = a100 - a000;",
+    "  float k2 = a010 - a000;",
+    "  float k3 = a001 - a000;",
+    "  float k4 = a000 - a100 - a010 + a110;",
+    "  float k5 = a000 - a010 - a001 + a011;",
+    "  float k6 = a000 - a100 - a001 + a101;",
+    "  float k7 = -a000 + a100 + a010 - a110 + a001 - a101 - a011 + a111;",
+    "  return k0 + k1 * u.x + k2 * u.y + k3 * u.z + k4 * u.x * u.y + k5 * u.y * u.z + k6 * u.z * u.x + k7 * u.x * u.y * u.z;",
+    "}",
+    "",
+    "const vec3 origin = vec3(0.0, 0.0, 1.0);",
+    "const vec3 cDir = vec3(0.0, 0.0, -1.0);",
+    "const vec3 cUp = vec3(0.0, 1.0, 0.0);",
+    "const vec3 cSide = vec3(1.0, 0.0, 0.0);",
+    "const float SIZE = 0.35;",
+    "const float TRAIL_SIZE = 0.18;",
+    "",
+    "float smoothMin(float a, float b, float k) {",
+    "  float h = exp(-k * a) + exp(-k * b);",
+    "  return -log(h) / k;",
+    "}",
+    "",
+    "float sdSphere(vec3 p, float s) {",
+    "  return length(p) - s;",
+    "}",
+    "",
+    "float map(vec3 p) {",
+    "  float baseRadius = 4.5e-2 * TRAIL_SIZE;",
+    "  float radius = baseRadius * float(TRAIL_LENGTH);",
+    "  float k = 7.0;",
+    "  float d = 1e5;",
+    "  for (int i = 0; i < TRAIL_LENGTH; i++) {",
+    "    float fi = float(i);",
+    "    vec2 trail = uPointerTrail[i];",
+    "    float sphere = sdSphere(p - vec3(trail, 0.0), radius - baseRadius * fi);",
+    "    d = smoothMin(d, sphere, k);",
+    "  }",
+    "  vec3 fp1 = normalizedToShader(0.85 + sin(uTime * 0.3) * 0.1, 0.8 + cos(uTime * 0.2) * 0.1, sin(uTime * 0.1) * 0.2);",
+    "  d = smoothMin(d, sdSphere(p - fp1, (0.3 + 0.05 * sin(uTime * 0.7)) * SIZE), k);",
+    "  vec3 fp2 = normalizedToShader(0.15 + cos(uTime * 0.4) * 0.08, 0.3 + sin(uTime * 0.35) * 0.15, cos(uTime * 0.15) * 0.2);",
+    "  d = smoothMin(d, sdSphere(p - fp2, (0.25 + 0.06 * cos(uTime * 0.5)) * SIZE), k);",
+    "  vec3 fp3 = normalizedToShader(0.4 + sin(uTime * 0.25) * 0.15, 0.9 + cos(uTime * 0.4) * 0.08, sin(uTime * 0.2) * 0.15);",
+    "  d = smoothMin(d, sdSphere(p - fp3, (0.35 + 0.05 * sin(uTime * 0.9)) * SIZE), k);",
+    "  vec3 fp4 = normalizedToShader(0.75 + cos(uTime * 0.5) * 0.12, 0.2 + sin(uTime * 0.3) * 0.1, cos(uTime * 0.12) * 0.25);",
+    "  d = smoothMin(d, sdSphere(p - fp4, (0.28 + 0.06 * cos(uTime * 0.6)) * SIZE), k);",
+    "  vec3 fp5 = normalizedToShader(0.5 + sin(uTime * 0.8) * 0.2, 0.5 + cos(uTime * 0.6) * 0.2, sin(uTime * 0.4) * 0.2);",
+    "  d = smoothMin(d, sdSphere(p - fp5, (0.38 + 0.04 * sin(uTime * 1.1)) * SIZE), k);",
+    "  vec3 fp6 = normalizedToShader(0.25 + cos(uTime * 0.35) * 0.1, 0.15 + sin(uTime * 0.45) * 0.1, cos(uTime * 0.18) * 0.2);",
+    "  d = smoothMin(d, sdSphere(p - fp6, (0.27 + 0.06 * cos(uTime * 0.8)) * SIZE), k);",
+    "  return d;",
+    "}",
+    "",
+    "vec3 generateNormal(vec3 p) {",
+    "  const vec2 e = vec2(1.0, -1.0);",
+    "  return normalize(",
+    "    e.xyy * map(p + e.xyy * EPS) +",
+    "    e.yyx * map(p + e.yyx * EPS) +",
+    "    e.yxy * map(p + e.yxy * EPS) +",
+    "    e.xxx * map(p + e.xxx * EPS)",
+    "  );",
+    "}",
+    "",
+    "vec3 dropletColor(vec3 normal, vec3 rayDir) {",
+    "  vec3 reflectDir = reflect(rayDir, normal);",
+    "  float n0 = noise3D(reflectDir * 2.0 + uTime);",
+    "  float n1 = noise3D(reflectDir * 2.0 - uTime);",
+    "  vec3 c0 = vec3(0.1765, 0.1255, 0.2275) * n0;",
+    "  vec3 c1 = vec3(0.4118, 0.4118, 0.4157) * n1;",
+    "  return (c0 + c1) * 2.3;",
+    "}",
+    "",
+    "void main() {",
+    "  vec2 p = (gl_FragCoord.xy * 2.0 - uResolution) / min(uResolution.x, uResolution.y);",
+    "  vec3 ray = origin + cSide * p.x + cUp * p.y;",
+    "  vec3 rayDirection = cDir;",
+    "  float dist = 0.0;",
+    "  for (int i = 0; i < ITR; ++i) {",
+    "    dist = map(ray);",
+    "    ray += rayDirection * dist;",
+    "    if (dist < EPS) break;",
+    "  }",
+    "  vec3 color = vec3(0.0);",
+    "  bool hit = dist < EPS;",
+    "  if (hit) {",
+    "    vec3 normal = generateNormal(ray);",
+    "    color = dropletColor(normal, rayDirection);",
+    "    vec3 c2 = color * color;",
+    "    vec3 c4 = c2 * c2;",
+    "    vec3 finalColor = c4 * c2 * color;",
+    "    float fresnel = 1.0 - max(dot(normal, -rayDirection), 0.0);",
+    "    float rim = pow(fresnel, 2.5);",
+    "    finalColor += vec3(0.65, 0.6, 0.85) * rim * 0.55;",
+    "    gl_FragColor = vec4(finalColor, 1.0);",
+    "  } else {",
+    "    gl_FragColor = vec4(0.0);",
+    "  }",
+    "}"
+  ].join("\n");
+
+  var canvas, gl, toggle, program;
+  var locTime, locRes, locTrail;
   var running = false;
   var rafId = null;
   var lastT = null;
+  var trailAccum = 0;
+  var dpr = 1;
 
-  function rand(min, max) { return min + Math.random() * (max - min); }
+  var viewport = { x: 0, y: 0 };
+  var target = { x: 0, y: 0 };
+  var leader = { x: 0, y: 0 };
+  var velocity = { x: 0, y: 0 };
+  var trail = [];
+  var trailFlat = new Float32Array(TRAIL_LENGTH * 2);
 
-  function bubbleCount() {
-    var area = window.innerWidth * window.innerHeight;
-    return Math.max(10, Math.min(26, Math.round(area / 55000)));
+  function compile(type, src) {
+    var sh = gl.createShader(type);
+    gl.shaderSource(sh, src);
+    gl.compileShader(sh);
+    if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) {
+      console.error(gl.getShaderInfoLog(sh));
+      gl.deleteShader(sh);
+      return null;
+    }
+    return sh;
   }
 
-  function makeBubble() {
-    var r = rand(18, 58);
-    return {
-      x: rand(0, width),
-      y: rand(0, height),
-      r: r,
-      hue: HUES[Math.floor(Math.random() * HUES.length)],
-      sat: rand(55, 75),
-      light: rand(55, 68),
-      alpha: rand(0.5, 0.8),
-      vx: rand(-6, 6),
-      vy: -rand(10, 26),
-      phase: rand(0, Math.PI * 2),
-      phaseSpeed: rand(0.4, 0.9),
-      driftAmp: rand(10, 28)
-    };
+  function linkProgram() {
+    var vs = compile(gl.VERTEX_SHADER, VERT);
+    var fs = compile(gl.FRAGMENT_SHADER, FRAG);
+    if (!vs || !fs) return null;
+    var prog = gl.createProgram();
+    gl.attachShader(prog, vs);
+    gl.attachShader(prog, fs);
+    gl.bindAttribLocation(prog, 0, "position");
+    gl.linkProgram(prog);
+    gl.deleteShader(vs);
+    gl.deleteShader(fs);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+      console.error(gl.getProgramInfoLog(prog));
+      gl.deleteProgram(prog);
+      return null;
+    }
+    return prog;
+  }
+
+  function viewportToShader(clientX, clientY, out) {
+    var min = Math.min(viewport.x, viewport.y) || 1;
+    out.x = (clientX * 2 - viewport.x) / min;
+    out.y = (viewport.y - clientY * 2) / min;
   }
 
   function resize() {
-    width = window.innerWidth;
-    height = window.innerHeight;
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    [gooCanvas, shineCanvas].forEach(function (c) {
-      c.width = width * dpr;
-      c.height = height * dpr;
-      c.style.width = width + "px";
-      c.style.height = height + "px";
-    });
-    gooCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    shineCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    viewport.x = window.innerWidth;
+    viewport.y = window.innerHeight;
+    dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    canvas.width = Math.max(1, Math.round(viewport.x * dpr));
+    canvas.height = Math.max(1, Math.round(viewport.y * dpr));
+    canvas.style.width = viewport.x + "px";
+    canvas.style.height = viewport.y + "px";
+    gl.viewport(0, 0, canvas.width, canvas.height);
   }
 
-  function seedBubbles() {
-    var count = bubbleCount();
-    bubbles = [];
-    for (var i = 0; i < count; i++) bubbles.push(makeBubble());
-  }
+  function step(dt) {
+    var fx = SPRING_STIFFNESS * (target.x - leader.x) - SPRING_DAMPING * velocity.x;
+    var fy = SPRING_STIFFNESS * (target.y - leader.y) - SPRING_DAMPING * velocity.y;
+    velocity.x += fx * dt;
+    velocity.y += fy * dt;
+    leader.x += velocity.x * dt;
+    leader.y += velocity.y * dt;
 
-  function step(dt, t) {
-    var repelRadius = 130;
-    for (var i = 0; i < bubbles.length; i++) {
-      var b = bubbles[i];
+    var dx = target.x - leader.x;
+    var dy = target.y - leader.y;
+    var distSq = dx * dx + dy * dy;
+    var maxSq = MAX_LAG_DISTANCE * MAX_LAG_DISTANCE;
+    if (distSq > maxSq) {
+      var dist = Math.sqrt(distSq);
+      var drag = (dist - MAX_LAG_DISTANCE) / dist;
+      leader.x += dx * drag;
+      leader.y += dy * drag;
+    }
 
-      if (mouse.active) {
-        var dx = b.x - mouse.x;
-        var dy = b.y - mouse.y;
-        var dist = Math.sqrt(dx * dx + dy * dy) || 1;
-        if (dist < repelRadius) {
-          var force = (1 - dist / repelRadius) * 90;
-          b.vx += (dx / dist) * force * dt;
-          b.vy += (dy / dist) * force * dt;
-        }
+    trailAccum += dt;
+    while (trailAccum >= TRAIL_SHIFT_INTERVAL_S) {
+      trailAccum -= TRAIL_SHIFT_INTERVAL_S;
+      for (var i = TRAIL_LENGTH - 1; i > 0; i--) {
+        trail[i].x = trail[i - 1].x;
+        trail[i].y = trail[i - 1].y;
       }
-
-      // gentle drift back toward a calm float, so mouse pushes decay away
-      b.vx += (0 - b.vx) * 0.6 * dt;
-      b.x += b.vx * dt + Math.sin(t * b.phaseSpeed + b.phase) * b.driftAmp * dt;
-      b.y += b.vy * dt;
-
-      if (b.x < -b.r) b.x = width + b.r;
-      if (b.x > width + b.r) b.x = -b.r;
-      if (b.y < -b.r * 2) {
-        b.y = height + b.r;
-        b.x = rand(0, width);
-        b.vy = -rand(10, 26);
-      }
+      trail[0].x = leader.x;
+      trail[0].y = leader.y;
     }
   }
 
-  function draw() {
-    gooCtx.clearRect(0, 0, width, height);
-    shineCtx.clearRect(0, 0, width, height);
-
-    for (var i = 0; i < bubbles.length; i++) {
-      var b = bubbles[i];
-
-      gooCtx.beginPath();
-      gooCtx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
-      gooCtx.fillStyle = "hsla(" + b.hue + ", " + b.sat + "%, " + b.light + "%, " + b.alpha + ")";
-      gooCtx.fill();
-
-      var hx = b.x - b.r * 0.32;
-      var hy = b.y - b.r * 0.38;
-      var hr = b.r * 0.55;
-      var grad = shineCtx.createRadialGradient(hx, hy, 0, hx, hy, hr);
-      grad.addColorStop(0, "rgba(255,255,255,0.55)");
-      grad.addColorStop(1, "rgba(255,255,255,0)");
-      shineCtx.beginPath();
-      shineCtx.arc(hx, hy, hr, 0, Math.PI * 2);
-      shineCtx.fillStyle = grad;
-      shineCtx.fill();
+  function draw(time) {
+    for (var i = 0; i < TRAIL_LENGTH; i++) {
+      trailFlat[i * 2] = trail[i].x;
+      trailFlat[i * 2 + 1] = trail[i].y;
     }
+    gl.clearColor(0, 0, 0, 0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.useProgram(program);
+    gl.uniform1f(locTime, time);
+    gl.uniform2f(locRes, canvas.width, canvas.height);
+    gl.uniform2fv(locTrail, trailFlat);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
   }
 
   function frame(t) {
     if (!running) return;
     if (lastT === null) lastT = t;
-    var dt = Math.min((t - lastT) / 1000, 0.05);
+    var dt = Math.min((t - lastT) / 1000, MAX_DT_S);
     lastT = t;
-    step(dt, t / 1000);
-    draw();
+    step(dt);
+    draw(t / 1000);
     rafId = requestAnimationFrame(frame);
   }
 
   function start() {
-    if (running) return;
+    if (running || !program) return;
     running = true;
     lastT = null;
+    canvas.classList.add("is-active");
     rafId = requestAnimationFrame(frame);
-    gooCanvas.classList.add("is-active");
-    shineCanvas.classList.add("is-active");
   }
 
   function stop() {
     running = false;
     if (rafId) cancelAnimationFrame(rafId);
     rafId = null;
-    gooCanvas.classList.remove("is-active");
-    shineCanvas.classList.remove("is-active");
-    gooCtx.clearRect(0, 0, width, height);
-    shineCtx.clearRect(0, 0, width, height);
+    canvas.classList.remove("is-active");
+    if (gl) {
+      gl.clearColor(0, 0, 0, 0);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+    }
   }
 
   function setEnabled(enabled, persist) {
@@ -165,43 +306,45 @@
     try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
     if (stored === "1") return true;
     if (stored === "0") return false;
-    var reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    return !reducedMotion;
+    var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    return !reduced;
   }
 
   function init() {
-    gooCanvas = document.getElementById("bubbles-goo");
-    shineCanvas = document.getElementById("bubbles-shine");
+    canvas = document.getElementById("bubbles");
     toggle = document.getElementById("bubbles-toggle");
-    if (!gooCanvas || !shineCanvas) return;
+    if (!canvas) return;
 
-    gooCtx = gooCanvas.getContext("2d");
-    shineCtx = shineCanvas.getContext("2d");
+    gl = canvas.getContext("webgl", { alpha: true, premultipliedAlpha: false, antialias: false });
+    if (!gl) return;
+
+    program = linkProgram();
+    if (!program) return;
+
+    locTime = gl.getUniformLocation(program, "uTime");
+    locRes = gl.getUniformLocation(program, "uResolution");
+    locTrail = gl.getUniformLocation(program, "uPointerTrail[0]");
+
+    var buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+      -1, -1, 0,
+       3, -1, 0,
+      -1,  3, 0
+    ]), gl.STATIC_DRAW);
+    gl.enableVertexAttribArray(0);
+    gl.vertexAttribPointer(0, 3, gl.FLOAT, false, 0, 0);
+    gl.disable(gl.DEPTH_TEST);
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
+    for (var i = 0; i < TRAIL_LENGTH; i++) trail.push({ x: 0, y: 0 });
 
     resize();
-    seedBubbles();
-
-    window.addEventListener("resize", function () {
-      resize();
-      seedBubbles();
+    window.addEventListener("resize", resize);
+    window.addEventListener("pointermove", function (e) {
+      viewportToShader(e.clientX, e.clientY, target);
     });
-
-    window.addEventListener("mousemove", function (e) {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-      mouse.active = true;
-    });
-    window.addEventListener("mouseleave", function () { mouse.active = false; });
-    window.addEventListener(
-      "touchmove",
-      function (e) {
-        if (!e.touches || !e.touches.length) return;
-        mouse.x = e.touches[0].clientX;
-        mouse.y = e.touches[0].clientY;
-        mouse.active = true;
-      },
-      { passive: true }
-    );
 
     document.addEventListener("visibilitychange", function () {
       if (document.hidden) stop();
