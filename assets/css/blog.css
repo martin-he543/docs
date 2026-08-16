@@ -1,9 +1,11 @@
 :root {
   color-scheme: light dark;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: var(--font-sans);
   max-width: 720px;
   margin: 3rem auto;
   padding: 0 1.5rem 4rem;
@@ -33,9 +35,18 @@ a:hover { text-decoration: underline; }
   font-size: 0.95rem;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
 h1 { font-size: 1.75rem; margin-bottom: 0.25rem; }
 h2 { font-size: 1.35rem; margin-top: 2rem; }
 h3 { font-size: 1.1rem; margin-top: 1.5rem; }
+h4 { font-size: 1.05rem; margin-top: 1.75rem; margin-bottom: 0.65rem; }
+h5 { font-size: 1rem; margin-top: 1.25rem; }
+h6 { font-size: 0.95rem; margin-top: 1rem; }
 
 .post-list {
   list-style: none;
@@ -53,8 +64,9 @@ h3 { font-size: 1.1rem; margin-top: 1.5rem; }
 .post-card:hover { text-decoration: none; background: #fafafa; }
 
 .post-card-title {
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
   margin: 0 0 0.35rem;
 }
 
@@ -86,6 +98,45 @@ h3 { font-size: 1.1rem; margin-top: 1.5rem; }
 }
 
 .tag-list { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+/* Colour-coded changelog product / area tags */
+.chg-tag {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0.2rem 0.15rem 0;
+  padding: 0.12rem 0.55rem;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.chg-tag--web-core-app { background: #dbeafe; color: #1e40af; }
+.chg-tag--community-courses { background: #ede9fe; color: #5b21b6; }
+.chg-tag--android { background: #dcfce7; color: #166534; }
+.chg-tag--ios { background: #e5e7eb; color: #1f2937; }
+.chg-tag--internal { background: #ffedd5; color: #9a3412; }
+.chg-tag--learning { background: #cffafe; color: #155e75; }
+.chg-tag--path { background: #fce7f3; color: #9d174d; }
+.chg-tag--plans { background: #fef3c7; color: #92400e; }
+.chg-tag--onboarding { background: #e0e7ff; color: #3730a3; }
+.chg-tag--mems { background: #f3e8ff; color: #6b21a8; }
+
+@media (prefers-color-scheme: dark) {
+  .chg-tag--web-core-app { background: #1e3a5f; color: #93c5fd; }
+  .chg-tag--community-courses { background: #3b0764; color: #d8b4fe; }
+  .chg-tag--android { background: #14532d; color: #86efac; }
+  .chg-tag--ios { background: #374151; color: #e5e7eb; }
+  .chg-tag--internal { background: #7c2d12; color: #fdba74; }
+  .chg-tag--learning { background: #164e63; color: #a5f3fc; }
+  .chg-tag--path { background: #831843; color: #f9a8d4; }
+  .chg-tag--plans { background: #78350f; color: #fde68a; }
+  .chg-tag--onboarding { background: #312e81; color: #c7d2fe; }
+  .chg-tag--mems { background: #581c87; color: #e9d5ff; }
+}
 
 .empty-state {
   color: #777;
