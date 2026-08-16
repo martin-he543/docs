@@ -1,13 +1,16 @@
 // Renders a post listing into #post-list, reading from window.BLOG_POSTS_DIR
 // (a path relative to the page, defaulting to "../posts/"). Lets multiple
 // blog sections (e.g. /blog/, /memrise/) share the same rendering logic
-// while pointing at separate posts folders.
+// while pointing at separate posts folders. Also renders a toolbar above
+// the list for filtering by tag, sorting, and switching list/grid view.
 (function () {
   "use strict";
 
   var postsDir = window.BLOG_POSTS_DIR || "../posts/";
   var listEl = document.getElementById("post-list");
   var introEl = document.getElementById("intro");
+
+  var state = { tags: new Set(), sort: "date-desc", view: "list" };
 
   function escapeHtml(str) {
     return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -19,6 +22,123 @@
     if (isNaN(d.getTime())) return dateStr;
     return d.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
   }
+
+  function postCardHtml(post) {
+    var tags = (post.meta.tags || [])
+      .map(function (t) { return '<span class="tag">' + escapeHtml(t) + "</span>"; })
+      .join("");
+    return (
+      '<a class="post-card" href="./post.html?post=' + encodeURIComponent(post.file) + '">' +
+        '<h2 class="post-card-title">' + escapeHtml(post.title) + "</h2>" +
+        (post.meta.summary ? '<p class="post-card-summary">' + escapeHtml(post.meta.summary) + "</p>" : "") +
+        '<div class="post-meta">' +
+          (post.meta.date ? "<time>" + formatDate(post.meta.date) + "</time>" : "") +
+          '<span class="tag-list">' + tags + "</span>" +
+        "</div>" +
+      "</a>"
+    );
+  }
+
+  function buildToolbar(allTags) {
+    var toolbar = document.createElement("div");
+    toolbar.className = "list-toolbar";
+
+    var tagFilter = document.createElement("div");
+    tagFilter.className = "tag-filter";
+    tagFilter.setAttribute("role", "group");
+    tagFilter.setAttribute("aria-label", "Filter by tag");
+
+    var allChip = document.createElement("button");
+    allChip.type = "button";
+    allChip.className = "tag-chip is-active";
+    allChip.dataset.tag = "";
+    allChip.textContent = "All";
+    tagFilter.appendChild(allChip);
+
+    allTags.forEach(function (tag) {
+      var chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "tag-chip";
+      chip.dataset.tag = tag;
+      chip.textContent = tag;
+      tagFilter.appendChild(chip);
+    });
+
+    tagFilter.addEventListener("click", function (e) {
+      var chip = e.target.closest(".tag-chip");
+      if (!chip) return;
+      var tag = chip.dataset.tag;
+      if (tag === "") {
+        state.tags.clear();
+      } else if (state.tags.has(tag)) {
+        state.tags.delete(tag);
+      } else {
+        state.tags.add(tag);
+      }
+      Array.prototype.forEach.call(tagFilter.children, function (el) {
+        var active = el.dataset.tag === "" ? state.tags.size === 0 : state.tags.has(el.dataset.tag);
+        el.classList.toggle("is-active", active);
+      });
+      render();
+    });
+
+    var controls = document.createElement("div");
+    controls.className = "list-toolbar-controls";
+
+    var sortLabel = document.createElement("label");
+    sortLabel.className = "sort-control";
+    sortLabel.textContent = "Sort ";
+    var sortSelect = document.createElement("select");
+    sortSelect.setAttribute("aria-label", "Sort posts");
+    [
+      ["date-desc", "Newest first"],
+      ["date-asc", "Oldest first"],
+      ["title-asc", "Title A–Z"],
+      ["title-desc", "Title Z–A"]
+    ].forEach(function (opt) {
+      var o = document.createElement("option");
+      o.value = opt[0];
+      o.textContent = opt[1];
+      sortSelect.appendChild(o);
+    });
+    sortSelect.addEventListener("change", function () {
+      state.sort = sortSelect.value;
+      render();
+    });
+    sortLabel.appendChild(sortSelect);
+
+    var viewToggle = document.createElement("div");
+    viewToggle.className = "view-toggle";
+    viewToggle.setAttribute("role", "group");
+    viewToggle.setAttribute("aria-label", "View");
+    ["list", "grid"].forEach(function (v) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.dataset.view = v;
+      btn.textContent = v === "list" ? "List" : "Grid";
+      if (v === state.view) btn.classList.add("is-active");
+      viewToggle.appendChild(btn);
+    });
+    viewToggle.addEventListener("click", function (e) {
+      var btn = e.target.closest("button[data-view]");
+      if (!btn) return;
+      state.view = btn.dataset.view;
+      Array.prototype.forEach.call(viewToggle.children, function (el) {
+        el.classList.toggle("is-active", el.dataset.view === state.view);
+      });
+      render();
+    });
+
+    controls.appendChild(sortLabel);
+    controls.appendChild(viewToggle);
+
+    toolbar.appendChild(tagFilter);
+    toolbar.appendChild(controls);
+    return toolbar;
+  }
+
+  var allPosts = [];
+  var render = function () {};
 
   fetch(postsDir + "index.json")
     .then(function (r) {
@@ -43,28 +163,59 @@
       );
     })
     .then(function (posts) {
-      posts = posts.filter(Boolean);
-      posts.sort(function (a, b) {
-        return (b.meta.date || "").localeCompare(a.meta.date || "");
-      });
+      allPosts = posts.filter(Boolean);
+      if (!allPosts.length) return;
 
-      posts.forEach(function (post) {
-        var li = document.createElement("li");
-        var tags = (post.meta.tags || [])
-          .map(function (t) { return '<span class="tag">' + escapeHtml(t) + "</span>"; })
-          .join("");
-
-        li.innerHTML =
-          '<a class="post-card" href="./post.html?post=' + encodeURIComponent(post.file) + '">' +
-            '<h2 class="post-card-title">' + escapeHtml(post.title) + "</h2>" +
-            (post.meta.summary ? '<p class="post-card-summary">' + escapeHtml(post.meta.summary) + "</p>" : "") +
-            '<div class="post-meta">' +
-              (post.meta.date ? "<time>" + formatDate(post.meta.date) + "</time>" : "") +
-              '<span class="tag-list">' + tags + "</span>" +
-            "</div>" +
-          "</a>";
-        listEl.appendChild(li);
+      var tagSet = new Set();
+      allPosts.forEach(function (p) {
+        (p.meta.tags || []).forEach(function (t) { tagSet.add(t); });
       });
+      var allTags = Array.from(tagSet).sort(function (a, b) { return a.localeCompare(b); });
+
+      if (allTags.length) {
+        listEl.parentNode.insertBefore(buildToolbar(allTags), listEl);
+      }
+
+      render = function () {
+        var visible = allPosts.filter(function (p) {
+          if (state.tags.size === 0) return true;
+          var tags = p.meta.tags || [];
+          return tags.some(function (t) { return state.tags.has(t); });
+        });
+
+        visible.sort(function (a, b) {
+          switch (state.sort) {
+            case "date-asc":
+              return (a.meta.date || "").localeCompare(b.meta.date || "");
+            case "title-asc":
+              return a.title.localeCompare(b.title);
+            case "title-desc":
+              return b.title.localeCompare(a.title);
+            case "date-desc":
+            default:
+              return (b.meta.date || "").localeCompare(a.meta.date || "");
+          }
+        });
+
+        listEl.classList.toggle("post-list--grid", state.view === "grid");
+        listEl.innerHTML = "";
+
+        if (!visible.length) {
+          var li = document.createElement("li");
+          li.className = "empty-state";
+          li.textContent = "No posts match the selected tag(s).";
+          listEl.appendChild(li);
+          return;
+        }
+
+        visible.forEach(function (post) {
+          var li = document.createElement("li");
+          li.innerHTML = postCardHtml(post);
+          listEl.appendChild(li);
+        });
+      };
+
+      render();
     })
     .catch(function (err) {
       introEl.textContent = "Couldn't load posts (" + err.message + ").";
