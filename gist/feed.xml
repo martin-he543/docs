@@ -26,5 +26,12 @@
       <pubDate>Sun, 16 Aug 2026 00:00:00 GMT</pubDate>
       <description>Extending the functionality of Memrise Community Courses.</description>
     </item>
+    <item>
+      <title>Cursor Customisation</title>
+      <link>https://docs.martinhe.co.uk/gist/post.html?post=2026-08-15-cursor.md</link>
+      <guid isPermaLink="true">https://docs.martinhe.co.uk/gist/post.html?post=2026-08-15-cursor.md</guid>
+      <pubDate>Sun, 16 Aug 2026 00:00:00 GMT</pubDate>
+      <description>My custom keybindings, extensions, themes, and more for Cursor..</description>
+    </item>
   </channel>
 </rss>
