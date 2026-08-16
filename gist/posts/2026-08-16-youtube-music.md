@@ -1,0 +1,80 @@
+# YouTube Music Userscripts
+
+```post-data
+{
+  "date": "2026-08-16",
+  "tags": ["javascript", "userscript", "css"],
+  "summary": "Remove bloatware from YouTube Music web player."
+}
+```
+
+YouTube Music is pretty nice, especially when you install [BetterLyrics](https://chromewebstore.google.com/detail/better-lyrics-lyrics-for/effdbpeggelllpfkjppbokhmmiinhlmg?hl=en).
+
+## JavaScript
+
+```JavaScript
+// ==UserScript==
+// @name         YT Music - Replace Upgrade with Uploaded Albums
+// @namespace    http://tampermonkey.net/
+// @version      2026-08-02
+// @description  try to take over the world!
+// @author       Martin He
+// @match        https://music.youtube.com/*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=youtube.com
+// @grant        none
+// ==/UserScript==
+
+(function () {
+    'use strict';
+
+    const TARGET_PATH = 'M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1Zm0 2a9 9 0 110 18.001A9 9 0 0112 3Zm0 2.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13ZM12 7a5 5 0 110 10 5 5 0 010-10Zm3 5-5-3v6l5-3Z';
+    const ALBUM_ICON_PATH = 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z';
+    const DESTINATION_URL = '/library/uploaded_albums';
+
+    function transformUpgradeButton() {
+        // Find the specific Upgrade entry using its icon SVG path
+        const pathEl = document.querySelector(`ytmusic-guide-entry-renderer path[d="${TARGET_PATH}"]`);
+        if (!pathEl) return;
+
+        const guideEntry = pathEl.closest('ytmusic-guide-entry-renderer');
+        if (!guideEntry || guideEntry.dataset.transformed === 'true') return;
+
+        // Mark as processed so we don't re-bind continuously
+        guideEntry.dataset.transformed = 'true';
+
+        // 1. Update text label
+        const titleEl = guideEntry.querySelector('.title');
+        if (titleEl) {
+            titleEl.textContent = 'Albums';
+        }
+
+        // 2. Update icon to a record/album disc
+        pathEl.setAttribute('d', ALBUM_ICON_PATH);
+
+        // 3. Hijack click events for SPA routing
+        const paperItem = guideEntry.querySelector('tp-yt-paper-item');
+        if (paperItem) {
+            paperItem.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                // Trigger YouTube Music's internal SPA router if available, or fall back to standard navigation
+                const app = document.querySelector('ytmusic-app');
+                if (app && app.navigate_) {
+                    app.navigate_(DESTINATION_URL);
+                } else {
+                    window.location.href = DESTINATION_URL;
+                }
+            }, true);
+        }
+    }
+
+    // Observe DOM mutations to handle SPA dynamic re-renders
+    const observer = new MutationObserver(() => {
+        transformUpgradeButton();
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+    transformUpgradeButton();
+})();
+```
