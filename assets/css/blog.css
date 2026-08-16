@@ -31,9 +31,22 @@ a:hover { text-decoration: underline; }
 
 .site-nav {
   display: flex;
+  align-items: center;
   gap: 1.25rem;
   margin-bottom: 2.5rem;
   font-size: 0.95rem;
+}
+
+.site-nav .memrise-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.site-nav .memrise-logo {
+  width: 1.15em;
+  height: auto;
+  fill: currentColor;
 }
 
 h1, h2, h3, h4, h5, h6 {
