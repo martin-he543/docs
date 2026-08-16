@@ -77,12 +77,12 @@
     var nodes = Array.prototype.slice.call(article.children);
     var isHeading = function (el) { return /^H[1-6]$/.test(el.tagName); };
     var isEntryMarker = function (el) {
-      return (
-        el.tagName === "P" &&
-        el.firstElementChild &&
-        el.firstElementChild.tagName === "STRONG" &&
-        el.querySelector(".chg-tag")
-      );
+      if (el.tagName !== "P" || !el.querySelector(".chg-tag")) return false;
+      var first = el.firstElementChild;
+      if (!first) return false;
+      // Title line is usually <p><strong><span class="chg-tag">…, but
+      // unbolded [Tag] lines start with the span itself.
+      return first.tagName === "STRONG" || first.classList.contains("chg-tag");
     };
 
     var entries = [];
@@ -133,6 +133,8 @@
     ).sort(function (a, b) { return a.localeCompare(b); });
 
     var uiState = { tags: new Set(), search: "", order: "newest" };
+    var tagGroupHeadings = {};
+    var parked = document.createDocumentFragment();
 
     function applyVisibility() {
       var headingVisible = new Set();
@@ -152,6 +154,15 @@
 
       var anyVisible = entries.some(function (e) { return !e.elements[0].hidden; });
       emptyMsg.hidden = anyVisible;
+
+      Object.keys(tagGroupHeadings).forEach(function (tag) {
+        var heading = tagGroupHeadings[tag];
+        if (!heading.parentNode) return;
+        var any = entries.some(function (e) {
+          return !e.elements[0].hidden && e.tags.indexOf(tag) !== -1;
+        });
+        heading.hidden = uiState.order !== "tag" || !any;
+      });
     }
 
     // Re-orders entries newest/oldest by grouping nodes under the outermost
@@ -209,10 +220,50 @@
       return result;
     }
 
+    function primaryTag(entry) {
+      return entry.tags[0] || "Untagged";
+    }
+
     function applyOrder() {
       var frag = document.createDocumentFragment();
-      reorderedNodes(uiState.order).forEach(function (el) { frag.appendChild(el); });
+
+      if (uiState.order === "tag") {
+        preamble.forEach(function (el) { frag.appendChild(el); });
+        entryHeadings.forEach(function (h) { parked.appendChild(h); });
+
+        var groups = {};
+        allTags.forEach(function (tag) { groups[tag] = []; });
+        entries.forEach(function (e) {
+          var tag = primaryTag(e);
+          if (!groups[tag]) groups[tag] = [];
+          groups[tag].push(e);
+        });
+
+        Object.keys(groups).sort(function (a, b) { return a.localeCompare(b); }).forEach(function (tag) {
+          if (!groups[tag].length) return;
+          var heading = tagGroupHeadings[tag];
+          if (!heading) {
+            heading = document.createElement("h3");
+            heading.className = "changelog-tag-group";
+            heading.id = "tag-" + tag.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+            heading.textContent = tag;
+            tagGroupHeadings[tag] = heading;
+          }
+          heading.hidden = false;
+          frag.appendChild(heading);
+          groups[tag].forEach(function (e) {
+            e.elements.forEach(function (el) { frag.appendChild(el); });
+          });
+        });
+      } else {
+        Object.keys(tagGroupHeadings).forEach(function (tag) {
+          parked.appendChild(tagGroupHeadings[tag]);
+        });
+        reorderedNodes(uiState.order).forEach(function (el) { frag.appendChild(el); });
+      }
+
       article.appendChild(frag);
+      applyVisibility();
       renderToc(article);
     }
 
@@ -239,7 +290,7 @@
     sortToggle.className = "sort-toggle";
     sortToggle.setAttribute("role", "group");
     sortToggle.setAttribute("aria-label", "Sort order");
-    [["newest", "Newest first"], ["oldest", "Oldest first"]].forEach(function (opt) {
+    [["newest", "Newest first"], ["oldest", "Oldest first"], ["tag", "By tag"]].forEach(function (opt) {
       var btn = document.createElement("button");
       btn.type = "button";
       btn.dataset.order = opt[0];

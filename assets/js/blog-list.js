@@ -142,7 +142,8 @@
       ["date-desc", "Newest first"],
       ["date-asc", "Oldest first"],
       ["title-asc", "Title A–Z"],
-      ["title-desc", "Title Z–A"]
+      ["title-desc", "Title Z–A"],
+      ["tag-asc", "Tag A–Z"]
     ].forEach(function (opt) {
       var o = document.createElement("option");
       o.value = opt[0];
@@ -237,6 +238,9 @@
               return a.title.localeCompare(b.title);
             case "title-desc":
               return b.title.localeCompare(a.title);
+            case "tag-asc":
+              return (a.meta.tags || []).join(",").localeCompare((b.meta.tags || []).join(",")) ||
+                a.title.localeCompare(b.title);
             case "date-desc":
             default:
               return (b.meta.date || "").localeCompare(a.meta.date || "");

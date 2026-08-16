@@ -2,7 +2,7 @@
 
 ```post-data
 {
-  "date": "2026-08-11",
+  "date": "2026-08-15",
   "tags": ["feature", "releases"],
   "summary": "Incorporating Example Sentences into Memrise, and where we go from here."
 }

@@ -258,6 +258,7 @@ article.post-body h6 {
 }
 
 [data-theme="dark"] .toc { background: #1b1e24; border-color: #2a2d33; }
+[data-theme="dark"] .changelog-tag-group { border-bottom-color: #2a2d33; }
 
 /* ---- List / post toolbars: tag filter, sort, view toggle ---- */
 
@@ -368,6 +369,12 @@ article.post-body h6 {
 }
 
 .changelog-empty { margin: 0; color: #777; font-size: 0.9rem; }
+
+.changelog-tag-group {
+  margin-top: 1.75rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid #e2e2e2;
+}
 
 .feed-subscribe {
   display: flex;

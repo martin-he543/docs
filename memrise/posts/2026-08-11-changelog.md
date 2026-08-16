@@ -8,7 +8,6 @@
 }
 ```
 
-
 ## August 2026
 
 #### August 13th, 2026 (Thursday)
@@ -21,7 +20,7 @@ Learning screens now show at most two example sentences. Anything beyond that op
 **[Web Core App] Add keyboard shortcuts to checkpoint tapping tests.**
 You can use the 1–5 on the left-hand column, and 6–0 on the right-hand column, to quickly speed-run these tests (vocab check / match board).
 
-**[Web Core App] [Path]**
+**[Web Core App] [Path] Immerse Preview shows learnables.**
 On the Immerse preview card, we now show up to 5 learnables from the immersion video.
 
 **[Web Core App] [Path] Session preview cards on hover.**
@@ -67,7 +66,6 @@ Grammar sessions now hint that you can tap an example to reveal its translation.
 **[Web Core App] Recommended missions come from the backend.**
 The Speak tab now uses the shared server-side mission recommender instead of picking a mission on the client.
 
-
 #### August 10th, 2026 (Monday)
 
 **[Web Core App] [Path] Grammar session previews.**
@@ -77,6 +75,7 @@ Hovering an upcoming grammar session on the Path now shows a preview card with t
 The force-update prompt had been disabled. Learners on a too-old build are asked to update again.
 
 **[Community Courses] Add Actions menu to Course / Course Level pages. These actions include:**
+
 - Review Selected
 - Speed (Review) Selected
 - Mark Difficult
@@ -199,7 +198,6 @@ Learner wiki pages (`/wiki/…`) are public — no staff login required — and 
 
 **[Web Core App] Grammar markdown can include HTML.**
 Grammar wiki-style pages can render HTML in markdown, including ruby annotations and line breaks, so Japanese and similar content displays correctly.
-
 
 ## July 2026
 
@@ -522,7 +520,6 @@ Example / sample sentences now show in the Android learning experience.
 **[iOS] [Plans] Flash sale plans page.**
 Flash-sale plans get a timer, banner text from config, and the normal plans page can use the same template language. Debug sign-in helpers for this flow land the same day (not shown to learners).
 
-
 ## June 2026
 
 #### June 30th, 2026 (Tuesday)
@@ -725,7 +722,6 @@ The button is localised, which was the last blocker. Learners can use it in prod
 
 **[Android] Error bottom sheet.**
 A proper error bottom sheet when something fails to load, instead of a dead screen.
-
 
 ## May 2026
 
