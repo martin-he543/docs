@@ -29,6 +29,7 @@
     "const int ITR = 16;",
     "",
     "uniform float uTime;",
+    "uniform float uLight;",
     "uniform vec2 uResolution;",
     "uniform vec2 uPointerTrail[TRAIL_LENGTH];",
     "",
@@ -142,11 +143,16 @@
     "    color = dropletColor(normal, rayDirection);",
     "    vec3 c2 = color * color;",
     "    vec3 c4 = c2 * c2;",
-    "    vec3 finalColor = c4 * c2 * color;",
+    "    vec3 crushed = c4 * c2 * color;",
     "    float fresnel = 1.0 - max(dot(normal, -rayDirection), 0.0);",
     "    float rim = pow(fresnel, 2.5);",
-    "    finalColor += vec3(0.65, 0.6, 0.85) * rim * 0.55;",
-    "    gl_FragColor = vec4(finalColor, 1.0);",
+    "    // Deep violet fill — difference with white homepage copy → yellow-green.",
+    "    vec3 darkColor = mix(vec3(0.14, 0.05, 0.20), crushed, 0.28);",
+    "    darkColor += vec3(0.65, 0.6, 0.85) * rim * 0.55;",
+    "    // Dusty lilac fill — difference with white copy → muted olive (light analog).",
+    "    vec3 lightColor = mix(vec3(0.60, 0.54, 0.70), color, 0.35);",
+    "    lightColor += vec3(0.55, 0.50, 0.75) * rim * 0.45;",
+    "    gl_FragColor = vec4(mix(darkColor, lightColor, uLight), 1.0);",
     "  } else {",
     "    gl_FragColor = vec4(0.0);",
     "  }",
@@ -154,7 +160,8 @@
   ].join("\n");
 
   var canvas, gl, toggle, program;
-  var locTime, locRes, locTrail;
+  var locTime, locLight, locRes, locTrail;
+  var lightTheme = 0;
   var running = false;
   var rafId = null;
   var lastT = null;
@@ -256,6 +263,7 @@
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.useProgram(program);
     gl.uniform1f(locTime, time);
+    gl.uniform1f(locLight, lightTheme);
     gl.uniform2f(locRes, canvas.width, canvas.height);
     gl.uniform2fv(locTrail, trailFlat);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
@@ -322,8 +330,16 @@
     if (!program) return;
 
     locTime = gl.getUniformLocation(program, "uTime");
+    locLight = gl.getUniformLocation(program, "uLight");
     locRes = gl.getUniformLocation(program, "uResolution");
     locTrail = gl.getUniformLocation(program, "uPointerTrail[0]");
+
+    function syncTheme() {
+      lightTheme = document.documentElement.getAttribute("data-theme") === "light" ? 1 : 0;
+    }
+    syncTheme();
+    var themeObserver = new MutationObserver(syncTheme);
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
     var buf = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, buf);

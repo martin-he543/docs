@@ -16,8 +16,10 @@ body {
   line-height: 1.65;
   color: #1a1a1a;
   background: #fff;
+  isolation: isolate;
 }
 
+[data-theme="dark"] html { background: #14161a; }
 [data-theme="dark"] body { color: #e8e8e8; background: #14161a; }
 [data-theme="dark"] a { color: #6cb6ff; }
 [data-theme="dark"] .post-card { border-color: #2a2d33; }
@@ -234,7 +236,7 @@ body.post-page { max-width: 960px; }
   display: inline-block;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; background: #fff; }
 
 article.post-body h1,
 article.post-body h2,
@@ -604,6 +606,24 @@ article.post-body h6 {
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.5s ease;
+}
+
+.site-nav,
+.bubbles-toggle-bar {
+  position: relative;
+  z-index: 1;
+}
+
+/* henrikkvamme.no: white copy + difference. Dark violet blobs invert to a
+   slight yellow-green; light lilac blobs invert to a muted olive.
+   No z-index on the copy — a stacking context would isolate the blend. */
+body:has(.bubbles-canvas.is-active) .home-copy {
+  color: rgba(255, 255, 255, 0.88);
+  mix-blend-mode: difference;
+}
+
+body:has(.bubbles-canvas.is-active) .home-copy a {
+  color: inherit;
 }
 
 .bubbles-canvas.is-active { opacity: 1; }

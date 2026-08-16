@@ -283,9 +283,9 @@
   function getStoredTheme() {
     try {
       var t = window.localStorage.getItem(THEME_STORAGE_KEY);
-      return THEME_ORDER.indexOf(t) !== -1 ? t : "auto";
+      return THEME_ORDER.indexOf(t) !== -1 ? t : "dark";
     } catch (e) {
-      return "auto";
+      return "dark";
     }
   }
 

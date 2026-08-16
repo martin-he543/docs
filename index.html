@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<script>(function(){try{var t=localStorage.getItem("theme");var d=(t==="light"||t==="dark")?t:(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",d);}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem("theme");var d=t==="light"?"light":t==="dark"?"dark":t==="auto"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):"dark";document.documentElement.setAttribute("data-theme",d);}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Docs</title>
 <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
@@ -21,7 +21,9 @@
 <script src="./assets/js/markdown.js"></script>
 <script src="./assets/js/nav.js"></script>
 <script src="./assets/js/bubbles.js"></script>
+<div class="home-copy">
 <h1>Welcome to Docs!</h1>
 <p>This is my homebrewed spin on Gist (<a href="https://gist.github.com">gist.github.com</a>): except here, you won't find Microsoft siphoning off your snippets to juice up their robot overlords. Finally, a cozy place where I can host my own code, feed the AI of my choosing, and thwart Big Tech's data buffet. Viva la open data!</p>
+</div>
 </body>
 </html>
