@@ -24,6 +24,31 @@
     '<line x1="13.8" y1="13.8" x2="18" y2="18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>' +
     "</svg>";
 
+  var THEME_SUN_ICON_SVG =
+    '<svg class="theme-toggle-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+    '<circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/>' +
+    '<g stroke="currentColor" stroke-width="1.8" stroke-linecap="round">' +
+    '<line x1="12" y1="2" x2="12" y2="4.5"/>' +
+    '<line x1="12" y1="19.5" x2="12" y2="22"/>' +
+    '<line x1="2" y1="12" x2="4.5" y2="12"/>' +
+    '<line x1="19.5" y1="12" x2="22" y2="12"/>' +
+    '<line x1="4.9" y1="4.9" x2="6.6" y2="6.6"/>' +
+    '<line x1="17.4" y1="17.4" x2="19.1" y2="19.1"/>' +
+    '<line x1="4.9" y1="19.1" x2="6.6" y2="17.4"/>' +
+    '<line x1="17.4" y1="6.6" x2="19.1" y2="4.9"/>' +
+    "</g></svg>";
+
+  var THEME_MOON_ICON_SVG =
+    '<svg class="theme-toggle-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+    '<path fill="currentColor" d="M20.4 14.7A8.6 8.6 0 0 1 9.3 3.6a.9.9 0 0 0-1.1-1.2A10.4 10.4 0 1 0 21.6 15.8a.9.9 0 0 0-1.2-1.1Z"/>' +
+    "</svg>";
+
+  var THEME_AUTO_ICON_SVG =
+    '<svg class="theme-toggle-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+    '<path fill="currentColor" d="M12 2a10 10 0 1 0 0 20V2Z"/>' +
+    '<circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/>' +
+    "</svg>";
+
   function escapeHtml(str) {
     return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   }
@@ -40,7 +65,8 @@
           '<input type="text" class="site-search-input" placeholder="Search" aria-label="Search site" autocomplete="off" spellcheck="false">' +
         "</div>" +
         '<div class="site-search-results"></div>' +
-      "</div>";
+      "</div>" +
+      '<button type="button" id="theme-toggle" class="theme-toggle"></button>';
   }
 
   // Strips just enough markdown syntax to leave readable plain text for
@@ -60,7 +86,7 @@
 
   function buildSearchIndex(base) {
     var sections = [
-      { label: "Blog", dir: base + "posts/", postHref: base + "blog/post.html" },
+      { label: "Blog", dir: base + "blog/posts/", postHref: base + "blog/post.html" },
       { label: "Memrise", dir: base + "memrise/posts/", postHref: base + "memrise/post.html" }
     ];
 
@@ -249,12 +275,71 @@
     });
   }
 
+  var THEME_STORAGE_KEY = "theme";
+  var THEME_ORDER = ["auto", "light", "dark"];
+  var THEME_ICONS = { auto: THEME_AUTO_ICON_SVG, light: THEME_SUN_ICON_SVG, dark: THEME_MOON_ICON_SVG };
+  var THEME_LABELS = { auto: "Auto", light: "Light", dark: "Dark" };
+
+  function getStoredTheme() {
+    try {
+      var t = window.localStorage.getItem(THEME_STORAGE_KEY);
+      return THEME_ORDER.indexOf(t) !== -1 ? t : "auto";
+    } catch (e) {
+      return "auto";
+    }
+  }
+
+  function setStoredTheme(pref) {
+    try { window.localStorage.setItem(THEME_STORAGE_KEY, pref); } catch (e) {}
+  }
+
+  function resolveEffectiveTheme(pref) {
+    if (pref === "light" || pref === "dark") return pref;
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
+  function applyTheme(pref) {
+    document.documentElement.setAttribute("data-theme", resolveEffectiveTheme(pref));
+  }
+
+  function updateThemeButton(btn, pref) {
+    btn.innerHTML = THEME_ICONS[pref] + '<span class="theme-toggle-badge" aria-hidden="true">A</span>';
+    btn.classList.toggle("theme-toggle--auto", pref === "auto");
+    var label = "Theme: " + THEME_LABELS[pref] + ". Click to switch.";
+    btn.setAttribute("aria-label", label);
+    btn.title = label;
+  }
+
+  function initTheme(nav) {
+    var btn = nav.querySelector("#theme-toggle");
+    if (!btn) return;
+    var pref = getStoredTheme();
+    updateThemeButton(btn, pref);
+
+    btn.addEventListener("click", function () {
+      pref = THEME_ORDER[(THEME_ORDER.indexOf(pref) + 1) % THEME_ORDER.length];
+      setStoredTheme(pref);
+      applyTheme(pref);
+      updateThemeButton(btn, pref);
+    });
+
+    if (window.matchMedia) {
+      var mq = window.matchMedia("(prefers-color-scheme: dark)");
+      var onSystemChange = function () {
+        if (pref === "auto") applyTheme("auto");
+      };
+      if (mq.addEventListener) mq.addEventListener("change", onSystemChange);
+      else if (mq.addListener) mq.addListener(onSystemChange);
+    }
+  }
+
   function init() {
     var root = document.getElementById("site-nav");
     if (!root) return;
     var base = root.dataset.base || "";
     renderNav(root, { base: base });
     initSearch(root, base);
+    initTheme(root);
   }
 
   if (document.readyState === "loading") {
