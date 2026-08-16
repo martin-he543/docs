@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Docs — Memrise</title>
+    <link>https://docs.martinhe.co.uk/memrise/</link>
+    <description>Unofficial Memrise updates and documentation</description>
+    <language>en</language>
+    <item>
+      <title>Example Sentences in Memrise</title>
+      <link>https://docs.martinhe.co.uk/memrise/post.html?post=2026-08-15-example-sentences.md</link>
+      <guid isPermaLink="true">https://docs.martinhe.co.uk/memrise/post.html?post=2026-08-15-example-sentences.md</guid>
+      <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Incorporating Example Sentences into Memrise, and where we go from here.</description>
+    </item>
+    <item>
+      <title>Unofficial Changelog to Memrise</title>
+      <link>https://docs.martinhe.co.uk/memrise/post.html?post=2026-08-11-changelog.md</link>
+      <guid isPermaLink="true">https://docs.martinhe.co.uk/memrise/post.html?post=2026-08-11-changelog.md</guid>
+      <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
+      <description>An unofficial summary of most of the (external-facing) changes made to Memrise.</description>
+    </item>
+  </channel>
+</rss>

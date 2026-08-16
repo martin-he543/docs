@@ -39,9 +39,57 @@
     );
   }
 
+  function feedConfig() {
+    return window.BLOG_FEED || null;
+  }
+
+  function buildFeedSubscribe() {
+    var feed = feedConfig();
+    if (!feed || !feed.url) return null;
+
+    var abs = feed.absolute || feed.url;
+    var encoded = encodeURIComponent(abs);
+    var wrap = document.createElement("div");
+    wrap.className = "feed-subscribe";
+    wrap.setAttribute("role", "group");
+    wrap.setAttribute("aria-label", "Subscribe to RSS");
+
+    var links = [
+      { href: feed.url, label: "RSS" },
+      { href: "https://feedly.com/i/subscription/feed/" + encoded, label: "Add to Feedly" },
+      { href: "https://www.inoreader.com/?add_feed=" + encoded, label: "Add to Inoreader" },
+      { href: "https://www.newsblur.com/?url=" + encoded, label: "Add to NewsBlur" }
+    ];
+
+    links.forEach(function (item, i) {
+      var a = document.createElement("a");
+      a.className = "feed-btn" + (i === 0 ? " feed-btn--rss" : "");
+      a.href = item.href;
+      if (i > 0) {
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+      } else {
+        a.rel = "alternate";
+        a.type = "application/rss+xml";
+      }
+      a.innerHTML = (i === 0 ? RSS_ICON_SVG : "") + escapeHtml(item.label);
+      wrap.appendChild(a);
+    });
+
+    return wrap;
+  }
+
+  var RSS_ICON_SVG =
+    '<svg class="feed-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+    '<path fill="currentColor" d="M6.18 17.82a2.18 2.18 0 1 1-4.36 0 2.18 2.18 0 0 1 4.36 0ZM1.5 8.25v3.17c6.15 0 11.08 4.93 11.08 11.08h3.17C15.75 14.33 9.67 8.25 1.5 8.25Zm0-6.75v3.18C13.09 4.68 19.32 10.91 19.32 22.5H22.5C22.5 9.18 12.82 1.5 1.5 1.5Z"/>' +
+    "</svg>";
+
   function buildToolbar(allTags) {
     var toolbar = document.createElement("div");
     toolbar.className = "list-toolbar";
+
+    var feedBar = buildFeedSubscribe();
+    if (feedBar) toolbar.appendChild(feedBar);
 
     var tagFilter = document.createElement("div");
     tagFilter.className = "tag-filter";
@@ -172,9 +220,7 @@
       });
       var allTags = Array.from(tagSet).sort(function (a, b) { return a.localeCompare(b); });
 
-      if (allTags.length) {
-        listEl.parentNode.insertBefore(buildToolbar(allTags), listEl);
-      }
+      listEl.parentNode.insertBefore(buildToolbar(allTags), listEl);
 
       render = function () {
         var visible = allPosts.filter(function (p) {

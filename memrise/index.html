@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Instrument+Serif:ital@0;1&family=Baloo+2:wght@800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/blog.css">
+<link rel="alternate" type="application/rss+xml" title="Docs Memrise" href="./feed.xml">
 </head>
 <body>
 <nav class="site-nav" id="site-nav" data-base="../"></nav>
@@ -20,7 +21,14 @@
 
 <ul class="post-list" id="post-list"></ul>
 
-<script>window.BLOG_POSTS_DIR = "./posts/";</script>
+<script>
+window.BLOG_POSTS_DIR = "./posts/";
+window.BLOG_FEED = {
+  url: "./feed.xml",
+  absolute: "https://docs.martinhe.co.uk/memrise/feed.xml",
+  title: "Docs Memrise"
+};
+</script>
 <script src="../assets/js/markdown.js"></script>
 <script src="../assets/js/blog-list.js"></script>
 </body>
