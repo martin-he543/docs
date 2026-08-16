@@ -4,29 +4,32 @@
 <meta charset="UTF-8">
 <script>(function(){try{var t=localStorage.getItem("theme");var d=t==="light"?"light":t==="dark"?"dark":t==="auto"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):"dark";document.documentElement.setAttribute("data-theme",d);}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Post | Memrise | Docs</title>
+<title>Snippets | Docs</title>
 <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Instrument+Serif:ital@0;1&family=Baloo+2:wght@800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/blog.css">
+<link rel="alternate" type="application/rss+xml" title="Docs Snippets" href="./feed.xml">
 </head>
-<body class="post-page">
+<body>
 <nav class="site-nav" id="site-nav" data-base="../"></nav>
 <script src="../assets/js/nav.js"></script>
 
-<a class="back-link" href="./index.html">&larr; back to Memrise</a>
+<h1>Snippets</h1>
+<p class="empty-state" id="intro">Gist-style notes in <code>gist/posts/</code> — drop a markdown file in and it shows up here.</p>
 
-<div class="post-layout">
-  <nav id="toc" class="toc" aria-label="Table of contents" hidden></nav>
-  <div id="post-root">
-    <p class="empty-state">Loading post&hellip;</p>
-  </div>
-</div>
+<ul class="post-list" id="post-list"></ul>
 
-<script>window.BLOG_POSTS_DIR = "./posts/";</script>
+<script>
+window.BLOG_POSTS_DIR = "./posts/";
+window.BLOG_FEED = {
+  url: "./feed.xml",
+  absolute: "https://docs.martinhe.co.uk/gist/feed.xml",
+  title: "Docs Snippets"
+};
+</script>
 <script src="../assets/js/markdown.js"></script>
-<script src="../assets/js/code-blocks.js"></script>
-<script src="../assets/js/blog-post.js"></script>
+<script src="../assets/js/blog-list.js"></script>
 </body>
 </html>

@@ -478,6 +478,7 @@
         '<article class="post-body">' + window.SimpleMarkdown.render(parsed.body) + "</article>";
 
       var article = root.querySelector(".post-body");
+      if (window.enhanceCodeBlocks) window.enhanceCodeBlocks(article);
       renderToc(article);
       initChangelogTools(article);
     })

@@ -27,6 +27,8 @@ To add a post:
 
 `memrise/` is a second, independent blog section at `docs.martinhe.co.uk/memrise/` — same mechanism, but reading from its own `memrise/posts/` folder instead of `posts/`, so the two don't mix. Add posts there the same way.
 
+`gist/` is the Snippets tab — Gist-style markdown notes at `docs.martinhe.co.uk/gist/`, reading from `gist/posts/`. Fenced code blocks get syntax highlighting plus Raw and Copy buttons.
+
 To add another section, copy `memrise/index.html` and `memrise/post.html`, point `window.BLOG_POSTS_DIR` at a new folder, and add that folder to `scripts/generate-post-index.mjs`'s targets in `package.json` and `.github/workflows/update-post-index.yml`.
 
 Run `npm run build` locally to regenerate every section's `index.json`, and `npm run dev` to preview the site at `http://localhost:5500`.

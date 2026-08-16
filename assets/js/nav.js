@@ -18,6 +18,11 @@
     '<path fill="currentColor" d="M192 32c0 17.7 14.3 32 32 32c123.7 0 224 100.3 224 224c0 17.7 14.3 32 32 32s32-14.3 32-32C512 128.9 383.1 0 224 0c-17.7 0-32 14.3-32 32zm0 96c0 17.7 14.3 32 32 32c70.7 0 128 57.3 128 128c0 17.7 14.3 32 32 32s32-14.3 32-32c0-106-86-192-192-192c-17.7 0-32 14.3-32 32zM96 144c0-26.5-21.5-48-48-48S0 117.5 0 144L0 368c0 79.5 64.5 144 144 144s144-64.5 144-144s-64.5-144-144-144l-16 0 0 96 16 0c26.5 0 48 21.5 48 48s-21.5 48-48 48s-48-21.5-48-48l0-224z"/>' +
     "</svg>";
 
+  var SNIPPETS_ICON_SVG =
+    '<svg class="nav-icon" viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+    '<path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L630.6 256 473.4 345.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l184-184c12.5-12.5 12.5-32.8 0-45.3l-184-184c-12.5-12.5-32.8-12.5-45.3 0zm-265.1 0c-12.5-12.5-32.8-12.5-45.3 0l-184 184c-12.5 12.5-12.5 32.8 0 45.3l184 184c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L25.4 256 208.3 166.6c12.5-12.5 12.5-32.8 0-45.3z"/>' +
+    "</svg>";
+
   var SEARCH_ICON_SVG =
     '<svg class="site-search-icon" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
     '<circle cx="9" cy="9" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/>' +
@@ -58,6 +63,7 @@
     root.innerHTML =
       '<a href="' + base + 'index.html" class="nav-link">' + HOME_ICON_SVG + "Home</a>" +
       '<a href="' + base + 'blog/index.html" class="nav-link">' + BLOG_ICON_SVG + "Blog</a>" +
+      '<a href="' + base + 'gist/index.html" class="nav-link">' + SNIPPETS_ICON_SVG + "Snippets</a>" +
       '<a href="' + base + 'memrise/index.html" class="memrise-link">' + MEMRISE_LOGO_SVG + "Memrise</a>" +
       '<div class="site-search">' +
         '<div class="site-search-glass">' +
@@ -87,6 +93,7 @@
   function buildSearchIndex(base) {
     var sections = [
       { label: "Blog", dir: base + "blog/posts/", postHref: base + "blog/post.html" },
+      { label: "Snippets", dir: base + "gist/posts/", postHref: base + "gist/post.html" },
       { label: "Memrise", dir: base + "memrise/posts/", postHref: base + "memrise/post.html" }
     ];
 

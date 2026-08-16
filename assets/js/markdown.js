@@ -143,12 +143,14 @@
     while (i < lines.length) {
       var line = lines[i];
 
-      // Fenced code block
-      var fence = line.match(/^```(\w*)\s*$/);
+      // Fenced code block. Optional language and filename:
+      // ```js   or   ```javascript debounce.js
+      var fence = line.match(/^```([\w+-]*)(?:\s+(\S+))?\s*$/);
       if (fence) {
         flushParagraph();
         closeLists();
         var lang = fence[1] || "";
+        var filename = fence[2] || "";
         var code = [];
         i++;
         while (i < lines.length && !/^```\s*$/.test(lines[i])) {
@@ -157,7 +159,10 @@
         }
         i++; // skip closing fence
         var cls = lang ? ' class="language-' + lang + '"' : "";
-        html.push("<pre><code" + cls + ">" + escapeHtml(code.join("\n")) + "</code></pre>");
+        var preAttrs = "";
+        if (lang) preAttrs += ' data-lang="' + escapeHtml(lang) + '"';
+        if (filename) preAttrs += ' data-filename="' + escapeHtml(filename) + '"';
+        html.push("<pre" + preAttrs + "><code" + cls + ">" + escapeHtml(code.join("\n")) + "</code></pre>");
         continue;
       }
 

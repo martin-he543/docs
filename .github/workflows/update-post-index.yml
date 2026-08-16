@@ -7,6 +7,7 @@ on:
     paths:
       - "blog/posts/**/*.md"
       - "memrise/posts/**/*.md"
+      - "gist/posts/**/*.md"
       - "scripts/generate-post-index.mjs"
   workflow_dispatch:
 
@@ -32,16 +33,17 @@ jobs:
         run: |
           node scripts/generate-post-index.mjs blog/posts
           node scripts/generate-post-index.mjs memrise/posts
+          node scripts/generate-post-index.mjs gist/posts
 
       - name: Commit updated indexes
         run: |
-          if git diff --quiet -- blog/posts/index.json memrise/posts/index.json blog/feed.xml memrise/feed.xml; then
+          if git diff --quiet -- blog/posts/index.json memrise/posts/index.json gist/posts/index.json blog/feed.xml memrise/feed.xml gist/feed.xml; then
             echo "No index updates required."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add blog/posts/index.json memrise/posts/index.json blog/feed.xml memrise/feed.xml
+          git add blog/posts/index.json memrise/posts/index.json gist/posts/index.json blog/feed.xml memrise/feed.xml gist/feed.xml
           git commit -m "chore: refresh post indexes"
           git push

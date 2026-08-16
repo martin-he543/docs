@@ -19,6 +19,13 @@ const SECTIONS = {
     pagePath: "/memrise/",
     postPath: "/memrise/post.html",
     feedFile: "memrise/feed.xml"
+  },
+  "gist/posts": {
+    title: "Docs — Snippets",
+    description: "Gist-style snippets from docs.martinhe.co.uk/gist",
+    pagePath: "/gist/",
+    postPath: "/gist/post.html",
+    feedFile: "gist/feed.xml"
   }
 };
 
