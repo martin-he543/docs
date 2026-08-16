@@ -10,7 +10,11 @@
   var listEl = document.getElementById("post-list");
   var introEl = document.getElementById("intro");
 
+  var params = new URLSearchParams(window.location.search);
   var state = { tags: new Set(), sort: "date-desc", view: "list" };
+  params.getAll("tag").forEach(function (t) { if (t) state.tags.add(t); });
+  if (params.get("sort")) state.sort = params.get("sort");
+  if (params.get("view") === "grid" || params.get("view") === "list") state.view = params.get("view");
 
   function escapeHtml(str) {
     return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -98,7 +102,7 @@
 
     var allChip = document.createElement("button");
     allChip.type = "button";
-    allChip.className = "tag-chip is-active";
+    allChip.className = "tag-chip" + (state.tags.size === 0 ? " is-active" : "");
     allChip.dataset.tag = "";
     allChip.textContent = "All";
     tagFilter.appendChild(allChip);
@@ -106,7 +110,7 @@
     allTags.forEach(function (tag) {
       var chip = document.createElement("button");
       chip.type = "button";
-      chip.className = "tag-chip";
+      chip.className = "tag-chip" + (state.tags.has(tag) ? " is-active" : "");
       chip.dataset.tag = tag;
       chip.textContent = tag;
       tagFilter.appendChild(chip);
@@ -150,6 +154,7 @@
       o.textContent = opt[1];
       sortSelect.appendChild(o);
     });
+    sortSelect.value = state.sort;
     sortSelect.addEventListener("change", function () {
       state.sort = sortSelect.value;
       render();

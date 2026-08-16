@@ -2,10 +2,10 @@
 // (a path relative to the page, defaulting to "../posts/") and the "post"
 // query-string parameter. Shared by every blog section.
 //
-// Posts written in the changelog style (entries marked with **[Tag] Title**,
-// which markdown.js turns into a <strong> containing .chg-tag spans) get an
-// extra toolbar for filtering by tag, sorting newest/oldest, and searching
-// within the post. Plain posts are unaffected.
+// Posts with tagged entries (**[Tag] Title** or headings that contain
+// .chg-tag spans) get a toolbar to filter by tag, sort, and search.
+// Blog posts without inline tags but with two or more same-level sections
+// still get search + sort over those sections.
 (function () {
   "use strict";
 
@@ -69,25 +69,23 @@
     toc.innerHTML = '<p class="toc-title">Contents</p>' + renderTocList(buildTocTree(headings));
   }
 
-  // Detects changelog-style entries (a <p> led by a <strong> that contains
-  // at least one .chg-tag span) and groups each entry with the paragraphs/
-  // lists that follow it, up to the next entry marker or heading. Builds a
-  // toolbar that lets you filter by tag, search, and flip newest/oldest.
-  function initChangelogTools(article) {
-    var nodes = Array.prototype.slice.call(article.children);
-    var isHeading = function (el) { return /^H[1-6]$/.test(el.tagName); };
+  function tagsFrom(el) {
+    return Array.prototype.map.call(el.querySelectorAll(".chg-tag"), function (t) {
+      return t.textContent.trim();
+    }).filter(Boolean);
+  }
+
+  function collectTaggedParagraphEntries(nodes, isHeading) {
     var isEntryMarker = function (el) {
       if (el.tagName !== "P" || !el.querySelector(".chg-tag")) return false;
       var first = el.firstElementChild;
       if (!first) return false;
-      // Title line is usually <p><strong><span class="chg-tag">…, but
-      // unbolded [Tag] lines start with the span itself.
       return first.tagName === "STRONG" || first.classList.contains("chg-tag");
     };
 
     var entries = [];
     var currentEntry = null;
-    var stack = []; // open heading elements, outermost first
+    var stack = [];
 
     nodes.forEach(function (el) {
       if (isHeading(el)) {
@@ -103,9 +101,8 @@
         currentEntry = {
           elements: [el],
           ancestors: stack.slice(),
-          tags: Array.prototype.map.call(el.querySelectorAll(".chg-tag"), function (t) {
-            return t.textContent.trim();
-          }),
+          tags: tagsFrom(el),
+          title: el.textContent.trim(),
           text: el.textContent.toLowerCase()
         };
         entries.push(currentEntry);
@@ -116,8 +113,71 @@
         currentEntry.text += " " + el.textContent.toLowerCase();
       }
     });
+    return entries;
+  }
 
-    if (!entries.length) return; // not a changelog-style post - nothing to do
+  function collectHeadingEntries(nodes, isHeading) {
+    var headings = nodes.filter(isHeading);
+    if (headings.length < 2) return [];
+
+    var counts = {};
+    headings.forEach(function (h) {
+      var lv = Number(h.tagName.charAt(1));
+      counts[lv] = (counts[lv] || 0) + 1;
+    });
+    var sectionLevel = null;
+    Object.keys(counts).map(Number).sort(function (a, b) { return a - b; }).forEach(function (lv) {
+      if (sectionLevel === null && counts[lv] >= 2) sectionLevel = lv;
+    });
+    if (sectionLevel === null) return [];
+
+    var entries = [];
+    var current = null;
+    var stack = [];
+
+    nodes.forEach(function (el) {
+      if (isHeading(el)) {
+        var level = Number(el.tagName.charAt(1));
+        while (stack.length && Number(stack[stack.length - 1].tagName.charAt(1)) >= level) {
+          stack.pop();
+        }
+        if (level === sectionLevel) {
+          current = {
+            elements: [el],
+            ancestors: stack.slice(),
+            tags: tagsFrom(el),
+            title: el.textContent.trim(),
+            text: el.textContent.toLowerCase()
+          };
+          entries.push(current);
+        } else if (level < sectionLevel) {
+          current = null;
+        } else if (current) {
+          current.elements.push(el);
+          current.text += " " + el.textContent.toLowerCase();
+        }
+        stack.push(el);
+        return;
+      }
+      if (current) {
+        current.elements.push(el);
+        current.text += " " + el.textContent.toLowerCase();
+      }
+    });
+    return entries.length >= 2 ? entries : [];
+  }
+
+  // Builds a toolbar that lets you filter by tag, search, and reorder
+  // discrete entries — changelog lines or blog-post sections.
+  function initChangelogTools(article) {
+    var nodes = Array.prototype.slice.call(article.children);
+    var isHeading = function (el) { return /^H[1-6]$/.test(el.tagName); };
+
+    var tagged = collectTaggedParagraphEntries(nodes, isHeading);
+    var entries = tagged.length ? tagged : collectHeadingEntries(nodes, isHeading);
+    var isChangelog = tagged.length > 0;
+
+    if (!entries.length) return;
 
     // Which headings own at least one entry (only these are ever hidden).
     var entryHeadings = new Set();
@@ -175,10 +235,16 @@
     var innerLevel = levels.length ? Math.min.apply(null, levels.filter(function (l) { return l > outerLevel; }).concat(Infinity)) : null;
 
     var originalOrder = nodes.slice();
-    var preambleEnd = outerLevel === null ? nodes.length : nodes.findIndex(function (el) {
-      return isHeading(el) && Number(el.tagName.charAt(1)) === outerLevel;
-    });
-    if (preambleEnd === -1) preambleEnd = nodes.length;
+    var firstEntryEl = entries[0] && entries[0].elements[0];
+    var firstEntryIdx = firstEntryEl ? nodes.indexOf(firstEntryEl) : 0;
+    if (firstEntryIdx < 0) firstEntryIdx = 0;
+
+    var preambleEnd = isChangelog && outerLevel !== null
+      ? nodes.findIndex(function (el) {
+          return isHeading(el) && Number(el.tagName.charAt(1)) === outerLevel;
+        })
+      : firstEntryIdx;
+    if (preambleEnd === -1) preambleEnd = firstEntryIdx;
     var preamble = originalOrder.slice(0, preambleEnd);
     var rest = originalOrder.slice(preambleEnd);
 
@@ -199,7 +265,15 @@
     }
 
     function reorderedNodes(order) {
-      if (outerLevel === null) return originalOrder;
+      if (!isChangelog || outerLevel === null) {
+        var flat = preamble.slice();
+        var list = entries.slice();
+        if (order === "oldest") list.reverse();
+        list.forEach(function (e) {
+          flat.push.apply(flat, e.elements);
+        });
+        return flat;
+      }
       var outerChunks = chunkByHeadingLevel(rest, outerLevel);
       if (order === "oldest") outerChunks = outerChunks.slice().reverse();
 
@@ -227,34 +301,42 @@
     function applyOrder() {
       var frag = document.createDocumentFragment();
 
-      if (uiState.order === "tag") {
+      if (uiState.order === "tag" || uiState.order === "title") {
         preamble.forEach(function (el) { frag.appendChild(el); });
         entryHeadings.forEach(function (h) { parked.appendChild(h); });
 
-        var groups = {};
-        allTags.forEach(function (tag) { groups[tag] = []; });
-        entries.forEach(function (e) {
-          var tag = primaryTag(e);
-          if (!groups[tag]) groups[tag] = [];
-          groups[tag].push(e);
-        });
-
-        Object.keys(groups).sort(function (a, b) { return a.localeCompare(b); }).forEach(function (tag) {
-          if (!groups[tag].length) return;
-          var heading = tagGroupHeadings[tag];
-          if (!heading) {
-            heading = document.createElement("h3");
-            heading.className = "changelog-tag-group";
-            heading.id = "tag-" + tag.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-            heading.textContent = tag;
-            tagGroupHeadings[tag] = heading;
-          }
-          heading.hidden = false;
-          frag.appendChild(heading);
-          groups[tag].forEach(function (e) {
+        if (uiState.order === "title") {
+          entries.slice().sort(function (a, b) {
+            return a.title.localeCompare(b.title);
+          }).forEach(function (e) {
             e.elements.forEach(function (el) { frag.appendChild(el); });
           });
-        });
+        } else {
+          var groups = {};
+          allTags.forEach(function (tag) { groups[tag] = []; });
+          entries.forEach(function (e) {
+            var tag = primaryTag(e);
+            if (!groups[tag]) groups[tag] = [];
+            groups[tag].push(e);
+          });
+
+          Object.keys(groups).sort(function (a, b) { return a.localeCompare(b); }).forEach(function (tag) {
+            if (!groups[tag].length) return;
+            var heading = tagGroupHeadings[tag];
+            if (!heading) {
+              heading = document.createElement("h3");
+              heading.className = "changelog-tag-group";
+              heading.id = "tag-" + tag.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+              heading.textContent = tag;
+              tagGroupHeadings[tag] = heading;
+            }
+            heading.hidden = false;
+            frag.appendChild(heading);
+            groups[tag].forEach(function (e) {
+              e.elements.forEach(function (el) { frag.appendChild(el); });
+            });
+          });
+        }
       } else {
         Object.keys(tagGroupHeadings).forEach(function (tag) {
           parked.appendChild(tagGroupHeadings[tag]);
@@ -278,8 +360,8 @@
     var searchInput = document.createElement("input");
     searchInput.type = "text";
     searchInput.className = "changelog-search";
-    searchInput.placeholder = "Search this changelog…";
-    searchInput.setAttribute("aria-label", "Search this changelog");
+    searchInput.placeholder = isChangelog ? "Search this changelog…" : "Search this post…";
+    searchInput.setAttribute("aria-label", isChangelog ? "Search this changelog" : "Search this post");
     searchInput.addEventListener("input", function () {
       uiState.search = searchInput.value;
       applyVisibility();
@@ -290,7 +372,10 @@
     sortToggle.className = "sort-toggle";
     sortToggle.setAttribute("role", "group");
     sortToggle.setAttribute("aria-label", "Sort order");
-    [["newest", "Newest first"], ["oldest", "Oldest first"], ["tag", "By tag"]].forEach(function (opt) {
+    var sortOptions = isChangelog
+      ? [["newest", "Newest first"], ["oldest", "Oldest first"]].concat(allTags.length ? [["tag", "By tag"]] : [["title", "Title A–Z"]])
+      : [["newest", "Original"], ["oldest", "Reversed"]].concat(allTags.length ? [["tag", "By tag"]] : [["title", "Title A–Z"]]);
+    sortOptions.forEach(function (opt) {
       var btn = document.createElement("button");
       btn.type = "button";
       btn.dataset.order = opt[0];
@@ -349,7 +434,7 @@
 
     var emptyMsg = document.createElement("p");
     emptyMsg.className = "changelog-empty";
-    emptyMsg.textContent = "No changes match your filters.";
+    emptyMsg.textContent = isChangelog ? "No changes match your filters." : "No sections match your filters.";
     emptyMsg.hidden = true;
 
     toolbar.appendChild(row);
@@ -375,7 +460,9 @@
       var parsed = window.SimpleMarkdown.parsePost(md);
       var meta = parsed.meta || {};
       var tags = (meta.tags || [])
-        .map(function (t) { return '<span class="tag">' + escapeHtml(t) + "</span>"; })
+        .map(function (t) {
+          return '<a class="tag" href="./index.html?tag=' + encodeURIComponent(t) + '">' + escapeHtml(t) + "</a>";
+        })
         .join("");
 
       document.title = (parsed.title || file) + " | Docs";
