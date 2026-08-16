@@ -393,7 +393,21 @@
     }
   }
 
+  function initHitCounter() {
+    if (document.getElementById("site-hit-counter")) return;
+    var img = document.createElement("img");
+    img.id = "site-hit-counter";
+    img.alt = "";
+    img.setAttribute("aria-hidden", "true");
+    img.tabIndex = -1;
+    img.src =
+      "https://hitscounter.dev/api/hit?url=https%3A%2F%2Fmartinhe.co.uk&label=Hits&icon=github&color=%23198754&tz=Europe%2FLondon";
+    img.style.cssText = "position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;";
+    document.body.appendChild(img);
+  }
+
   function init() {
+    initHitCounter();
     var root = document.getElementById("site-nav");
     if (!root) return;
     var base = root.dataset.base || "";
