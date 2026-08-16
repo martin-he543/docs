@@ -61,13 +61,15 @@
   function renderNav(root, opts) {
     var base = (opts && opts.base) || "";
     root.innerHTML =
-      '<a href="' + base + 'index.html" class="nav-link">' + HOME_ICON_SVG + "Home</a>" +
-      '<a href="' + base + 'blog/index.html" class="nav-link">' + BLOG_ICON_SVG + "Blog</a>" +
-      '<a href="' + base + 'gist/index.html" class="nav-link">' + SNIPPETS_ICON_SVG + "Snippets</a>" +
-      '<a href="' + base + 'memrise/index.html" class="memrise-link">' + MEMRISE_LOGO_SVG + "Memrise</a>" +
+      '<a href="' + base + 'index.html" class="nav-link">' + HOME_ICON_SVG + '<span class="nav-label">Home</span></a>' +
+      '<a href="' + base + 'blog/index.html" class="nav-link">' + BLOG_ICON_SVG + '<span class="nav-label">Blog</span></a>' +
+      '<a href="' + base + 'gist/index.html" class="nav-link">' + SNIPPETS_ICON_SVG + '<span class="nav-label">Snippets</span></a>' +
+      '<a href="' + base + 'memrise/index.html" class="memrise-link">' + MEMRISE_LOGO_SVG + '<span class="nav-label">Memrise</span></a>' +
       '<div class="site-search">' +
         '<div class="site-search-glass">' +
-          SEARCH_ICON_SVG +
+          '<button type="button" class="site-search-toggle" aria-label="Search" aria-expanded="false">' +
+            SEARCH_ICON_SVG +
+          "</button>" +
           '<input type="text" class="site-search-input" placeholder="Search" aria-label="Search site" autocomplete="off" spellcheck="false">' +
         "</div>" +
         '<div class="site-search-results"></div>' +
@@ -191,7 +193,33 @@
     var wrap = nav.querySelector(".site-search");
     var input = nav.querySelector(".site-search-input");
     var resultsEl = nav.querySelector(".site-search-results");
+    var toggle = nav.querySelector(".site-search-toggle");
     if (!wrap || !input || !resultsEl) return;
+
+    var mobileSearchMq = window.matchMedia("(max-width: 720px)");
+    function isMobileSearch() {
+      return mobileSearchMq.matches;
+    }
+
+    function setSearchOpen(open) {
+      nav.classList.toggle("is-search-open", open);
+      wrap.classList.toggle("is-expanded", open);
+      if (toggle) toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open) {
+        window.setTimeout(function () { input.focus(); }, 0);
+      } else {
+        input.value = "";
+        renderResults([], "");
+        input.blur();
+      }
+    }
+
+    function syncSearchToggle() {
+      if (!toggle) return;
+      toggle.tabIndex = isMobileSearch() ? 0 : -1;
+      if (!isMobileSearch()) setSearchOpen(false);
+    }
+    syncSearchToggle();
 
     var indexPromise = null;
     function ensureIndex() {
@@ -253,11 +281,32 @@
       if (input.value.trim() && resultsEl.innerHTML) resultsEl.classList.add("is-open");
     });
 
+    if (toggle) {
+      toggle.addEventListener("click", function (e) {
+        if (!isMobileSearch()) {
+          input.focus();
+          return;
+        }
+        e.preventDefault();
+        setSearchOpen(!nav.classList.contains("is-search-open"));
+      });
+    }
+
+    if (mobileSearchMq.addEventListener) {
+      mobileSearchMq.addEventListener("change", syncSearchToggle);
+    } else if (mobileSearchMq.addListener) {
+      mobileSearchMq.addListener(syncSearchToggle);
+    }
+
     input.addEventListener("keydown", function (e) {
       if (e.key === "Escape") {
-        input.value = "";
-        renderResults([], "");
-        input.blur();
+        if (isMobileSearch() && nav.classList.contains("is-search-open")) {
+          setSearchOpen(false);
+        } else {
+          input.value = "";
+          renderResults([], "");
+          input.blur();
+        }
         return;
       }
       var items = resultsEl.querySelectorAll(".search-result");
@@ -278,7 +327,11 @@
     });
 
     document.addEventListener("click", function (e) {
-      if (!wrap.contains(e.target)) resultsEl.classList.remove("is-open");
+      if (wrap.contains(e.target)) return;
+      resultsEl.classList.remove("is-open");
+      if (isMobileSearch() && nav.classList.contains("is-search-open")) {
+        setSearchOpen(false);
+      }
     });
   }
 
