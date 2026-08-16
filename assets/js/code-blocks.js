@@ -149,13 +149,58 @@
     return rules;
   }
 
-  function highlight(src, lang) {
+  function renderToken(tok) {
+    var safe = escapeHtml(tok.value);
+    return tok.type === "text" ? safe : '<span class="tok-' + tok.type + '">' + safe + "</span>";
+  }
+
+  function highlightLines(src, lang) {
     lang = normalizeLang(lang);
-    if (!lang) return escapeHtml(src);
-    return tokenize(src, rulesFor(lang)).map(function (tok) {
-      var safe = escapeHtml(tok.value);
-      return tok.type === "text" ? safe : '<span class="tok-' + tok.type + '">' + safe + "</span>";
-    }).join("");
+    var text = String(src).replace(/\n$/, "");
+    var tokens = lang ? tokenize(text, rulesFor(lang)) : [{ type: "text", value: text }];
+    var lines = [[]];
+    tokens.forEach(function (tok) {
+      var parts = tok.value.split("\n");
+      parts.forEach(function (part, i) {
+        if (i > 0) lines.push([]);
+        lines[lines.length - 1].push({ type: tok.type, value: part });
+      });
+    });
+    if (!lines.length) lines = [[{ type: "text", value: "" }]];
+    return lines.map(function (toks) {
+      return toks.map(renderToken).join("");
+    });
+  }
+
+  var WRAP_KEY = "code-wrap";
+  var LINES_KEY = "code-line-numbers";
+
+  function getCodePref(key) {
+    try {
+      var v = window.localStorage.getItem(key);
+      if (v === "off") return false;
+      if (v === "on") return true;
+    } catch (e) {}
+    return true;
+  }
+
+  function setCodePref(key, on) {
+    try { window.localStorage.setItem(key, on ? "on" : "off"); } catch (e) {}
+  }
+
+  function applyCodePrefs() {
+    var wrapOn = getCodePref(WRAP_KEY);
+    var linesOn = getCodePref(LINES_KEY);
+    document.documentElement.setAttribute("data-code-wrap", wrapOn ? "on" : "off");
+    document.documentElement.setAttribute("data-code-lines", linesOn ? "on" : "off");
+    Array.prototype.forEach.call(document.querySelectorAll(".code-block-btn[data-action='wrap']"), function (btn) {
+      btn.classList.toggle("is-active", wrapOn);
+      btn.setAttribute("aria-pressed", wrapOn ? "true" : "false");
+    });
+    Array.prototype.forEach.call(document.querySelectorAll(".code-block-btn[data-action='lines']"), function (btn) {
+      btn.classList.toggle("is-active", linesOn);
+      btn.setAttribute("aria-pressed", linesOn ? "true" : "false");
+    });
   }
 
   function copyText(text) {
@@ -202,7 +247,18 @@
     var filename = pre.getAttribute("data-filename") || "";
     var label = filename || lang || "text";
 
-    if (lang) code.innerHTML = highlight(raw, lang);
+    var lineHtmls = highlightLines(raw, lang);
+    var digits = String(lineHtmls.length).length;
+    code.innerHTML = lineHtmls.map(function (html, i) {
+      return (
+        '<span class="code-line">' +
+          '<span class="code-line-num" aria-hidden="true">' + (i + 1) + "</span>" +
+          '<span class="code-line-src">' + html + "</span>" +
+        "</span>"
+      );
+    }).join("");
+    pre.classList.add("code-block-pre");
+    pre.style.setProperty("--code-gutter", Math.max(2, digits) + "ch");
 
     var wrap = document.createElement("div");
     wrap.className = "code-block";
@@ -213,6 +269,8 @@
     header.innerHTML =
       '<span class="code-block-label">' + escapeHtml(label) + "</span>" +
       '<div class="code-block-actions">' +
+        '<button type="button" class="code-block-btn" data-action="wrap" aria-pressed="true">Wrap</button>' +
+        '<button type="button" class="code-block-btn" data-action="lines" aria-pressed="true">Lines</button>' +
         '<button type="button" class="code-block-btn" data-action="raw">Raw</button>' +
         '<button type="button" class="code-block-btn" data-action="copy">Copy</button>' +
       "</div>";
@@ -233,13 +291,21 @@
         });
       } else if (btn.dataset.action === "raw") {
         openRaw(raw, filename || (lang ? "snippet." + lang : "snippet.txt"));
+      } else if (btn.dataset.action === "wrap") {
+        setCodePref(WRAP_KEY, !getCodePref(WRAP_KEY));
+        applyCodePrefs();
+      } else if (btn.dataset.action === "lines") {
+        setCodePref(LINES_KEY, !getCodePref(LINES_KEY));
+        applyCodePrefs();
       }
     });
   }
 
   function enhance(root) {
+    applyCodePrefs();
     var scope = root || document;
     Array.prototype.forEach.call(scope.querySelectorAll("pre"), enhancePre);
+    applyCodePrefs();
   }
 
   window.enhanceCodeBlocks = enhance;

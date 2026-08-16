@@ -209,7 +209,8 @@ article.post-body pre {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
   padding: 0.4rem 0.65rem 0.4rem 0.85rem;
   border-bottom: 1px solid #d8dee6;
   background: #eef1f5;
@@ -224,7 +225,7 @@ article.post-body pre {
   white-space: nowrap;
 }
 
-.code-block-actions { display: flex; gap: 0.35rem; flex-shrink: 0; }
+.code-block-actions { display: flex; flex-wrap: wrap; gap: 0.35rem; flex-shrink: 0; }
 
 .code-block-btn {
   appearance: none;
@@ -242,11 +243,68 @@ article.post-body pre {
 
 .code-block-btn:hover { background: #f3f4f6; }
 
-article.post-body .code-block pre {
+.code-block-btn.is-active {
+  background: #1a1a1a;
+  border-color: #1a1a1a;
+  color: #fff;
+}
+
+article.post-body .code-block pre,
+article.post-body .code-block-pre {
   margin: 0;
   border-radius: 0;
   background: transparent;
+  overflow-x: auto;
+  padding: 0.7rem 0;
 }
+
+.code-block-pre code {
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  line-height: 1.55;
+}
+
+.code-line {
+  display: flex;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.code-line-num {
+  flex: none;
+  box-sizing: content-box;
+  width: var(--code-gutter, 2ch);
+  padding: 0 0.75rem 0 0.85rem;
+  text-align: right;
+  user-select: none;
+  color: #8c959f;
+}
+
+.code-line-src {
+  flex: 1;
+  min-width: 0;
+  padding-right: 1rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+html[data-code-wrap="off"] .code-line-src {
+  white-space: pre;
+  overflow-wrap: normal;
+}
+
+html[data-code-wrap="off"] .code-block-pre {
+  overflow-x: auto;
+}
+
+html[data-code-wrap="off"] .code-line {
+  min-width: max-content;
+}
+
+html[data-code-lines="off"] .code-line-num { display: none; }
+
+html[data-code-lines="off"] .code-line-src { padding-left: 1rem; }
 
 .tok-comment { color: #6a737d; }
 .tok-keyword { color: #d73a49; }
@@ -272,6 +330,14 @@ article.post-body .code-block pre {
 }
 
 [data-theme="dark"] .code-block-btn:hover { background: #30363d; }
+
+[data-theme="dark"] .code-block-btn.is-active {
+  background: #e8e8e8;
+  border-color: #e8e8e8;
+  color: #14161a;
+}
+
+[data-theme="dark"] .code-line-num { color: #6e7681; }
 
 [data-theme="dark"] .tok-comment { color: #8b949e; }
 [data-theme="dark"] .tok-keyword { color: #ff7b72; }
