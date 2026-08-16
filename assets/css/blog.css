@@ -4,6 +4,7 @@
   color-scheme: light dark;
   --font-sans: "Fraunces", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-code: "Space Grotesk";
 }
 
 html {
@@ -195,6 +196,12 @@ article.post-body pre {
   padding: 1rem;
   border-radius: 6px;
   background: #f6f8fa;
+  font-family: var(--font-code);
+}
+
+.code-block,
+.code-block * {
+  font-family: var(--font-code);
 }
 
 .code-block {
@@ -217,7 +224,7 @@ article.post-body pre {
 }
 
 .code-block-label {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: var(--font-code);
   font-size: 0.78rem;
   color: #57606a;
   overflow: hidden;
@@ -234,7 +241,7 @@ article.post-body pre {
   color: #24292f;
   border-radius: 6px;
   padding: 0.2rem 0.55rem;
-  font-family: var(--font-sans);
+  font-family: var(--font-code);
   font-size: 0.75rem;
   font-weight: 500;
   line-height: 1.4;
@@ -260,7 +267,7 @@ article.post-body .code-block-pre {
 
 .code-block-pre code {
   display: block;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: var(--font-code);
   font-size: 0.9em;
   line-height: 1.55;
 }
@@ -344,7 +351,7 @@ html[data-code-lines="off"] .code-line-src { padding-left: 1rem; }
 [data-theme="dark"] .tok-string { color: #a5d6ff; }
 [data-theme="dark"] .tok-number { color: #79c0ff; }
 article.post-body code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: var(--font-code);
   font-size: 0.9em;
 }
 article.post-body :not(pre) > code {
