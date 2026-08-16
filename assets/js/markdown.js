@@ -1,6 +1,7 @@
 // Minimal, dependency-free markdown -> HTML renderer for the blog.
 // Supports headings, bold/italic, inline code, links, images, fenced code
-// blocks, blockquotes, ordered/unordered lists, and horizontal rules.
+// blocks, blockquotes, ordered/unordered lists, horizontal rules, and
+// ::instrument ... :: font switches.
 // Not a full CommonMark implementation - just enough for blog posts.
 (function () {
   "use strict";
@@ -85,26 +86,13 @@
       return stash('<a href="' + href + '"' + titleAttr + relAttr + ">" + label + "</a>");
     });
 
-    // Changelog / product tags: [Web Core App], [Path], etc.
-    var TAGS = [
-      "Web Core App",
-      "Community Courses",
-      "Android",
-      "iOS",
-      "Internal",
-      "Learning",
-      "Path",
-      "Plans",
-      "Onboarding",
-      "Mems"
-    ];
-    var tagAlt = TAGS.map(function (t) {
-      return t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    }).join("|");
-    out = out.replace(new RegExp("\\[(" + tagAlt + ")\\]", "g"), function (_, tag) {
-      var slug = tag.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-      // Insert directly (do not stash): tags often sit inside **bold** titles,
-      // and nested placeholders would never be expanded.
+    // Bracket tags: [Web Core App], [philosophy], etc. Runs after links so
+    // [label](href) is left alone. Inserted raw (not stashed) so they still
+    // work inside **bold** titles.
+    out = out.replace(/\[([^\]\n]{1,48})\](?!\()/g, function (_, raw) {
+      var tag = raw.trim();
+      if (!tag || /^\d+$/.test(tag) || /^(https?:|mailto:)/i.test(tag)) return "[" + raw + "]";
+      var slug = tag.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "tag";
       return '<span class="chg-tag chg-tag--' + slug + '">' + tag + "</span>";
     });
 
@@ -161,6 +149,23 @@
         i++; // skip closing fence
         var cls = lang ? ' class="language-' + lang + '"' : "";
         html.push("<pre><code" + cls + ">" + escapeHtml(code.join("\n")) + "</code></pre>");
+        continue;
+      }
+
+      // Font switch: ::instrument ... ::
+      var fontOpen = line.trim().match(/^::(\w+)\s*$/);
+      if (fontOpen) {
+        flushParagraph();
+        closeLists();
+        html.push('<div class="font-' + fontOpen[1].toLowerCase() + '">');
+        i++;
+        continue;
+      }
+      if (line.trim() === "::") {
+        flushParagraph();
+        closeLists();
+        html.push("</div>");
+        i++;
         continue;
       }
 

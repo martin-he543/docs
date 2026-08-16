@@ -25,6 +25,7 @@ body {
 [data-theme="dark"] .post-card:hover { background: #1b1e24; }
 [data-theme="dark"] code, [data-theme="dark"] pre { background: #1e2127; }
 [data-theme="dark"] blockquote { border-color: #3a3d44; color: #b6bac2; }
+[data-theme="dark"] article.post-body .font-instrument em { color: #b6bac2; }
 [data-theme="dark"] hr { border-color: #2a2d33; }
 [data-theme="dark"] .tag { background: #23262c; color: #b6bac2; }
 
@@ -133,7 +134,13 @@ h6 { font-size: 0.95rem; margin-top: 1rem; }
   letter-spacing: 0.01em;
   line-height: 1.4;
   white-space: nowrap;
+  background: #f0f2f5;
+  color: #444;
 }
+
+[data-theme="dark"] .chg-tag { background: #23262c; color: #b6bac2; }
+
+.tag-list a.tag:hover { text-decoration: none; opacity: 0.85; }
 
 .chg-tag--web-core-app { background: #dbeafe; color: #1e40af; }
 .chg-tag--community-courses { background: #ede9fe; color: #5b21b6; }
@@ -185,6 +192,17 @@ article.post-body blockquote {
   margin: 1rem 0;
   padding-left: 1rem;
   border-left: 3px solid #ddd;
+  color: #555;
+}
+
+article.post-body .font-instrument {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.15rem;
+  line-height: 1.55;
+}
+
+article.post-body .font-instrument em {
   color: #555;
 }
 
@@ -687,8 +705,8 @@ article.post-body h6 {
     inset 0 -18px 36px rgba(255, 255, 255, 0.08),
     inset 0 0 0 1px rgba(255, 255, 255, 0.12),
     0 18px 50px rgba(0, 0, 0, 0.12);
-  -webkit-backdrop-filter: blur(28px) saturate(200%);
-  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(10px) saturate(200%);
+  backdrop-filter: blur(10px) saturate(200%);
 }
 
 .home-copy-glass::before {

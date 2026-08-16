@@ -18,133 +18,138 @@
 
 Romeo and Juliet script
 
-Martin- Narrator
+::instrument
 
-Seb- Typbalt, random bystander and music+sounds (with help from everyone not acting)
+**Martin:** Narrator
 
-Vishrut- Prince, bartender, Paris
+**Seb:** Tybalt, random bystander and music+sounds (with help from everyone not acting)
 
-Jay- Romeo
+**Vishrut:** Prince, bartender, Paris
 
-Theo- Juliet and Benvolio
+**Jay:** Romeo
 
-Drum roll
+**Theo:** Juliet and Benvolio
 
-Narrator-From the Maaaakkkkeeeeeersssss of the Matrix re-reloaded and frozen 2 ‘The melting’ comes Romeo and Juliet! Not suitable for viewers under the age of 62.
+*Drum roll*
+
+**Narrator:** From the Maaaakkkkeeeeeersssss of the Matrix re-reloaded and frozen 2 ‘The melting’ comes Romeo and Juliet! Not suitable for viewers under the age of 62.
 
 It’s a timeless classic filled with romance!
 
-Romeo and Juliet dance with their hands together
+*Romeo and Juliet dance with their hands together*
 
-Romeo-Our hands have touched so logically our lips should also touch
+**Romeo:** Our hands have touched so logically our lips should also touch
 
-Juliet-What kind of logic is that ?
+**Juliet:** What kind of logic is that?
 
-Juliet slaps Romeo and both then leave the stage
+*Juliet slaps Romeo and both then leave the stage*
 
-Martin-Action!
+**Martin:** Action!
 
-Benvolio and Tybalt have an intense rock paper scissors fight. After 3 draws (use rock) Tybalt wins with scissors and shanks Benvolio
+*Benvolio and Tybalt have an intense rock paper scissors fight. After 3 draws (use rock) Tybalt wins with scissors and shanks Benvolio*
 
-Tybalt- Ah ha! Shank!
+**Tybalt:** Ah ha! Shank!
 
-Benvolio- oh no now I am dead, I should have listened to my astrologer, he warned me it was a bad day to leave the house today!
+**Benvolio:** Oh no now I am dead, I should have listened to my astrologer, he warned me it was a bad day to leave the house today!
 
-Everyone off stage
+*Everyone off stage*
 
-Narrator-Moree action!
+**Narrator:** Moree action!
 
-Tybalt and Romeo have a fight exactly the same as Tybalt and Benvolio however Romeo wins and shanks Tybalt
+*Tybalt and Romeo have a fight exactly the same as Tybalt and Benvolio however Romeo wins and shanks Tybalt*
 
-Romeo-Take that! Shank!
+**Romeo:** Take that! Shank!
 
-Tybalt-Alas I am now dead, I too should have listened to my astrologer, he too warned me that it was a bad idea to leave the house today
+**Tybalt:** Alas I am now dead, I too should have listened to my astrologer, he too warned me that it was a bad idea to leave the house today
 
-All offstage
+*All offstage*
 
-Narrator-Court proceedings!
+**Narrator:** Court proceedings!
 
-Prince- I thee prince of fair Verona banish ye from thy city
+**Prince:** I thee prince of fair Verona banish ye from thy city
 
-Romeo-Noooooooooooooooooooooooooooooooooo
+**Romeo:** Noooooooooooooooooooooooooooooooooo
 
-Bystander-Lol
+**Bystander:** Lol
 
-Narrator-Unhealthy relationships
+**Narrator:** Unhealthy relationships
 
-Paris-Your parents think you are sad Juliet so to make you feel better they thought they would let you, a teenager, be married to me, a 56 year old man.
+**Paris:** Your parents think you are sad Juliet so to make you feel better they thought they would let you, a teenager, be married to me, a 56 year old man.
 
-Juliet facepalms
+*Juliet facepalms*
 
-Martin-Illegal substances!
+**Martin:** Illegal substances!
 
-Romeo walks up to bartender who is cleaning imaginary glasses
+*Romeo walks up to bartender who is cleaning imaginary glasses*
 
-Bartender-You’re not from around here are you?
+**Bartender:** You’re not from around here are you?
 
-Romeo-No
+**Romeo:** No
 
-Bartender-You got a name?
+**Bartender:** You got a name?
 
-Romeo-yes
+**Romeo:** Yes
 
-Bartender-What is it ?
+**Bartender:** What is it?
 
-Romeo-Montague, Romeo Montague
+**Romeo:** Montague, Romeo Montague
 
-Bartender gasps
+*Bartender gasps*
 
-Romeo- One poison please shaken not stirred!
+**Romeo:** One poison please shaken not stirred!
 
-Bartender makes Romeo’s drink and then stirs it before handing it over
+*Bartender makes Romeo’s drink and then stirs it before handing it over*
 
-All exit
+*All exit*
 
-Narrator-Plans!
+**Narrator:** Plans!
 
-Juliet-I will take this sleeping draught and when I wake after my family believe me to be dead I can be with Romeo.
+**Juliet:** I will take this sleeping draught and when I wake after my family believe me to be dead I can be with Romeo.
 
 I just hope Romeo doesn’t think I am actually dead and then kills himself by my tomb befiore I awake, cos that would be AWKWARD:?
 
-Juliet drinks potion and then falls asleep
+*Juliet drinks potion and then falls asleep*
 
-Martin-Misunderstandings!
+**Martin:** Misunderstandings!
 
-Romeo-Its Juliet! NOOOOOOOOOOOOOOOOOOOOOOOOOOO,She doesn’t look very dead though. She just looks like she took a sleeping draught as part of an elaborate plan to get us back together. Anyway where was I? oh yeah NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.
+**Romeo:** Its Juliet! NOOOOOOOOOOOOOOOOOOOOOOOOOOO, She doesn’t look very dead though. She just looks like she took a sleeping draught as part of an elaborate plan to get us back together. Anyway where was I? oh yeah NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.
 
-Stabs himself
+*Stabs himself*
 
-Martin-More misunderstandings!
+**Martin:** More misunderstandings!
 
-Juliet awakes and yawns, then notices Romeo.
+*Juliet awakes and yawns, then notices Romeo.*
 
-Juliet-he is dead oh no I cannot live without him
+**Juliet:** He is dead oh no I cannot live without him
 
-Grabs Romeo’s dagger
+*Grabs Romeo’s dagger*
 
-Juliet-Oh sweet dagger
+**Juliet:** Oh sweet dagger
 
-Stabs herself but the dagger just bounces off.
+*Stabs herself but the dagger just bounces off.*
 
-Juliet-Call this a knife?
+**Juliet:** Call this a knife?
 
- In frustration she stabs the knife into romeo who screams
+*In frustration she stabs the knife into Romeo who screams*
 
-Romeo- Arrgh, I wasn’t dead yet!
+**Romeo:** Arrgh, I wasn’t dead yet!
 
-Juliet-Oh no!
+**Juliet:** Oh no!
 
-She grabs a random gun from the ground
+*She grabs a random gun from the ground*
 
-Juliet-Goodbye cruel world!
+**Juliet:** Goodbye cruel world!
 
-Shoots herself and falls to the ground
+*Shoots herself and falls to the ground*
 
-Martin-Now available in selected cinemas so bad this was the only film they could afford
+**Martin:** Now available in selected cinemas so bad this was the only film they could afford
+
+::
 
 ___
 
 ## Little Red Riding Hood - Adaptation
+
 ___
 
 Starring
@@ -163,328 +168,484 @@ Broomstick Brennan
 
 ___
 
-Narrator: Our story starts in a time long long ago, in the year 2014, in a place far away called New Malden…
+::instrument
 
-Wolf (Annoyingly high voice): Lalalalala I’m hungry, and since it’s the 21st Century, I shall go to Lidl.
+**Narrator:** Our story starts in a time long long ago, in the year 2014, in a place far away called New Malden…
 
-(Walks to Lidl)
+**Wolf:** *(annoyingly high voice)* Lalalalala I’m hungry, and since it’s the 21st Century, I shall go to Lidl.
 
-Cleaner (Yorkshire): Is that a wo-olf in a dress?
+*(Walks to Lidl)*
 
-Other Person (Essex): Nah mate, can’t be, since the 2003 Animal Cruelty Act, ‘peeps aren’t allowed to dress wolfs in people clothes.
+**Cleaner:** *(Yorkshire)* Is that a wo-olf in a dress?
 
-Cleaner: Ya I get that, but do people ‘ave menacing claws?
+**Other Person:** *(Essex)* Nah mate, can’t be, since the 2003 Animal Cruelty Act, ‘peeps aren’t allowed to dress wolfs in people clothes.
 
-Other Person: Brah, I read in ‘da Sun sum tiem ago ‘dat ‘liek 80% of british ‘peeps ‘ave ‘ad plastic surgery.
+**Cleaner:** Ya I get that, but do people ‘ave menacing claws?
 
-(Cleaner stares at Other Person checking for signs of plastic surgery)
+**Other Person:** Brah, I read in ‘da Sun sum tiem ago ‘dat ‘liek 80% of british ‘peeps ‘ave ‘ad plastic surgery.
 
-Cleaner: What ya lewkin’ at meight?
+*(Cleaner stares at Other Person checking for signs of plastic surgery)*
 
-Other Person: Just ‘earching for plastic unmentionables ‘of ‘yours ‘ya know 80% an’‘ll?
+**Cleaner:** What ya lewkin’ at meight?
 
-Narrator (sidestepping across scene while everything changes): MEANWHILEEEEEEEE:
+**Other Person:** Just ‘earching for plastic unmentionables ‘of ‘yours ‘ya know 80% an’‘ll?
 
-Wolf: Twennie-one pence?
+**Narrator:** *(sidestepping across scene while everything changes)* MEANWHILEEEEEEEE:
 
-Other Person: Yeah, what a coincidence.
+**Wolf:** Twennie-one pence?
 
-Wolf: Why would I want to eat these ‘vegetables?’ I think I’ll have sumting else instead.
+**Other Person:** Yeah, what a coincidence.
 
-(Wolf exits now-wrecked store)
+**Wolf:** Why would I want to eat these ‘vegetables?’ I think I’ll have sumting else instead.
 
-Other Person: What’s ‘is ‘roblem?
+*(Wolf exits now-wrecked store)*
 
-Cleaner: Given that ‘e can’t read ‘labels, and that he wrecked the store…
+**Other Person:** What’s ‘is ‘roblem?
 
-Other Person: Should’ve gone to Specsavers.
+**Cleaner:** Given that ‘e can’t read ‘labels, and that he wrecked the store…
 
-(Wolf walks in search of food: In the distance, he can hear someone dancing to ‘Anaconda’, walks towards house)
+**Other Person:** Should’ve gone to Specsavers.
 
-(Random Girl knocks on door (x3))
+*(Wolf walks in search of food: In the distance, he can hear someone dancing to ‘Anaconda’, walks towards house)*
 
-Random Girl: Do you wanna raise money for Lepra? (Do you wanna build a snowman tune)
+*(Random Girl knocks on door (x3))*
 
-Grandma (gruffly on “Lepra”): No
+**Random Girl:** Do you wanna raise money for Lepra? *(Do you wanna build a snowman tune)*
 
-(Grandma shuts the door in her face, Random Girl starts crying)
+**Grandma:** *(gruffly on “Lepra”)* No
 
-Wolf: Hey, move, ‘lil gurl.
+*(Grandma shuts the door in her face, Random Girl starts crying)*
 
-(Wolf knocks on door (three times like Sheldon))
+**Wolf:** Hey, move, ‘lil gurl.
 
-Wolf: Anonymous person, Anonymous person, Anonymous person
+*(Wolf knocks on door (three times like Sheldon))*
 
-Grandma: Helloooooooooooooo…
+**Wolf:** Anonymous person, Anonymous person, Anonymous person
 
-Wolf: I’m gonna gob ‘ya I will.
+**Grandma:** Helloooooooooooooo…
 
-Grandma: Well, you wanna go son? You wanna?
+**Wolf:** I’m gonna gob ‘ya I will.
 
-(Wolf chases Grandma)
+**Grandma:** Well, you wanna go son? You wanna?
 
-(Wolf eats Grandma)
+*(Wolf chases Grandma)*
 
-Wolf: Finally, I knew I should’nt’ve gone to McDonalds.
+*(Wolf eats Grandma)*
 
-(RRH knocks on the door, pushing Random Girl out of the way)
+**Wolf:** Finally, I knew I should’nt’ve gone to McDonalds.
 
-Wolf (quietly): Oh Crap, I should’ve.
+*(RRH knocks on the door, pushing Random Girl out of the way)*
 
-(door opens)
+**Wolf:** *(quietly)* Oh Crap, I should’ve.
 
-RRH: Hello grandma.
+*(door opens)*
 
-(Awkward silence)
+**RRH:** Hello grandma.
 
-RRH: Well Grandma, what nice furry coat you have!
+*(Awkward silence)*
 
-Wolf: Got it from those ‘peeps at Lidl for 21 pence ‘blad.
+**RRH:** Well Grandma, what nice furry coat you have!
 
-RRH: What great big eyes you ‘ave Grandma.
+**Wolf:** Got it from those ‘peeps at Lidl for 21 pence ‘blad.
 
-Wolf: Plastic Surgery: , I read in ‘da Sun sum tiem ago ‘dat ‘liek 80% of british ‘peeps ‘ave ‘ad plastic surgery so I woz like “why not?”
+**RRH:** What great big eyes you ‘ave Grandma.
 
-RRH: Well what-a change. What great big ‘ears ‘ya ‘ave.
+**Wolf:** Plastic Surgery: I read in ‘da Sun sum tiem ago ‘dat ‘liek 80% of british ‘peeps ‘ave ‘ad plastic surgery so I woz like “why not?”
 
-Wolf: ‘ad ‘em put in last week.
+**RRH:** Well what-a change. What great big ‘ears ‘ya ‘ave.
 
-RRH: Hey look…
+**Wolf:** ‘ad ‘em put in last week.
 
-Wolf: What ‘bout the part where you ask what big teeth I ‘ave?
+**RRH:** Hey look…
 
-RRH: Nope.
+**Wolf:** What ‘bout the part where you ask what big teeth I ‘ave?
 
-Narrator: And she chucked her sandal as he took his last breath, it punctured his face causing his death, and just to make sure that he was dead, she chucked a mace right in t’wads his dead. Then came a pistols introduction, to turn this place into a path of destruction. So in no less than one day shorter, New Malden had turned into a scene of slaughter.
+**RRH:** Nope.
 
-(Police car noises)
+**Narrator:** And she chucked her sandal as he took his last breath, it punctured his face causing his death, and just to make sure that he was dead, she chucked a mace right in t’wads his dead. Then came a pistols introduction, to turn this place into a path of destruction. So in no less than one day shorter, New Malden had turned into a scene of slaughter.
 
-Police Man: PUT UR HANDS IN THE AIR
+*(Police car noises)*
 
-RRH: should we wave them around like we just don’t care
+**Police Man:** PUT UR HANDS IN THE AIR
 
-Police Man: THAT’S OPTIONAL! RED RIDING HOOD, IM ARRESTING YOU UNDER FOR SUSPECTED ANIMAL CRUELTY UNDER THE ANIMAL CRUELTY ACT OF 2003.
+**RRH:** should we wave them around like we just don’t care
 
-RRH: Not for long bruv.
+**Police Man:** THAT’S OPTIONAL! RED RIDING HOOD, IM ARRESTING YOU UNDER FOR SUSPECTED ANIMAL CRUELTY UNDER THE ANIMAL CRUELTY ACT OF 2003.
 
-*James bond theme stars secret guy hidden in curtains comes out with a gun, puts it in his pocket and RKOs the policeman*
+**RRH:** Not for long bruv.
 
-RRH: THAT’LL TEACH ‘IM TO MESS WITH GHOSTBUSTERS
+*James Bond theme starts. Secret guy hidden in curtains comes out with a gun, puts it in his pocket and RKOs the policeman*
 
-*Cue ghostbusters theme*
+**RRH:** THAT’LL TEACH ‘IM TO MESS WITH GHOSTBUSTERS
 
-## Act 3 Scene 1 Midsummer's Modern Dream 
+*Cue Ghostbusters theme*
 
----
-CHARACTERS + SYMBOLS: 
+::
 
--   Bottom-arrogant 
-
--   Quince-director 
-
--   Titania-fairy-queen 
-
--   Flute-has iPhone 
-
--   Snug-has Nokia Brick 
-
--   Snout-Has Windows Phone 
-
--   Starveling-has iPhone 
-
--   Puck/Robin-fairy 
+## Act 3 Scene 1 Midsummer's Modern Dream
 
 ---
 
--   Are we all met? 
+CHARACTERS + SYMBOLS:
 
-(Everyone on Phones) 
+- Bottom — arrogant
+- Quince — director
+- Titania — fairy-queen
+- Flute — has iPhone
+- Snug — has Nokia Brick
+- Snout — has Windows Phone
+- Starveling — has iPhone
+- Puck/Robin — fairy
 
--   Are we all met? 
+---
 
--   What the hell is that supposed to mean? We ain't no Shakespearian actors now are we. BTW everyone's on their iPhones m9. 
+::instrument
 
-(Crossy Road Sound) 
+Are we all met?
 
--   OK, I've had it, all iPhones away. 
+*(Everyone on Phones)*
 
-Aaaaaaah.\
-(all stare towards Windows Phone user) 
+Are we all met?
 
--   I have a Windows Phone. 
+What the hell is that supposed to mean? We ain't no Shakespearian actors now are we. BTW everyone's on their iPhones m9.
 
--   Phones away! 
+*(Crossy Road Sound)*
 
--   OK, I've emailed you all a script. 
+OK, I've had it, all iPhones away.
 
--   Sure, but Mr Smarty-Pants, where do you expect to find Wi-Fi in the middle of a forest? 
+Aaaaaaah.
 
--   21st century America? 
+*(all stare towards Windows Phone user)*
 
--   Apart from 21st century America. 
+I have a Windows Phone.
 
-(Thinks) 
+Phones away!
 
--   My Phone doesn't have email. 
+OK, I've emailed you all a script.
 
-(in unison) That's because it's a Nokia Brick. 
+Sure, but Mr Smarty-Pants, where do you expect to find Wi-Fi in the middle of a forest?
 
--   (realises no Wi-Fi) No Wi-Fi? I think I'm going to faint. (faints) 
+21st century America?
 
--   Hey, m8s, what if people like think I actually kill myself and that. 
+Apart from 21st century America.
 
--   Yeah I agree with Bottom. 
+*(Thinks)*
 
--   What if we like give a prologue informing everyone: no-one was harmed in the making of this. 
+My Phone doesn't have email.
 
--   What's a prologue? 
+*(in unison)* That's because it's a Nokia Brick.
 
--   See this proves my point, I thought everyone knew what a prologue is. 
+*(realises no Wi-Fi)* No Wi-Fi? I think I'm going to faint. *(faints)*
 
--   Oh, shut up. 
+Hey, m8s, what if people like think I actually kill myself and that.
 
--   Prologue it is, we'll write it in the format of 8 syllables 6 syllables. 
+Yeah I agree with Bottom.
 
--   Oh, who gives a damn about how many syllables you use; we'll not flipping Shakespeare are we? 
+What if we like give a prologue informing everyone: no-one was harmed in the making of this.
 
--   Won't the people be scared of the lion and what not then if you've come to that conclusion? 
+What's a prologue?
 
--   I'm really worried about that? 
+See this proves my point, I thought everyone knew what a prologue is.
 
--   Oh, for Christ's sake, you're scared of a mask? 
+Oh, shut up.
 
--   It's already broken anyway. 
+Prologue it is, we'll write it in the format of 8 syllables 6 syllables.
 
--   That's cos you bought it from Tesco. 
+Oh, who gives a damn about how many syllables you use; we'll not flipping Shakespeare are we?
 
--   Poundland, it's cheaper. 
+Won't the people be scared of the lion and what not then if you've come to that conclusion?
 
--   Sure we'll add that to the prologue. 
+I'm really worried about that?
 
--   How should we start it? I would like to ask you, or, I would like to tell you or... 
+Oh, for Christ's sake, you're scared of a mask?
 
--   Sup? 
+It's already broken anyway.
 
--   All right that's figured. Now how are we getting moonlight into the room, you know Pyramus and Thisbe meet by moonlight. 
+That's cos you bought it from Tesco.
 
--   Will the moon be shining on the night we perform the play? 
+Poundland, it's cheaper.
 
--   Get an almanac. Quick! 
+Sure we'll add that to the prologue.
 
--   It's not the Stone Age, Quince. I've got Wikipedia on my phone.... (facial change) Oh, no Wi-Fi? 
+How should we start it? I would like to ask you, or, I would like to tell you or...
 
--   It don't even matter no more. There ain't  no moon. Look at the pollution in the sky. 
+Sup?
 
--   How 'bout I use my Windows Phone Flashlight app? 
+All right that's figured. Now how are we getting moonlight into the room, you know Pyramus and Thisbe meet by moonlight.
 
-(in unison) No-one likes Windows Phone! 
+Will the moon be shining on the night we perform the play?
 
--   Let's use the iPhone app instead. But there's still one more problem. We need a wall in the grand hall for when Pyramus and Thisbe talked through a little hole in a wall. 
+Get an almanac. Quick!
 
--   You'll never be able to bring in a wall, Botts what's your opinion? 
+It's not the Stone Age, Quince. I've got Wikipedia on my phone.... *(facial change)* Oh, no Wi-Fi?
 
--   I'd say someone should act as wall. 
+It don't even matter no more. There ain't no moon. Look at the pollution in the sky.
 
--   Wait, I've got Wi-Fi! 
+How 'bout I use my Windows Phone Flashlight app?
 
-(everyone in unison) Phewww. 
+*(in unison)* No-one likes Windows Phone!
 
--   B&Q does 1 day delivery. Is that good enough for you? 
+Let's use the iPhone app instead. But there's still one more problem. We need a wall in the grand hall for when Pyramus and Thisbe talked through a little hole in a wall.
 
--   Anything cheaper? 
+You'll never be able to bring in a wall, Botts what's your opinion?
 
--   Homebase? 
+I'd say someone should act as wall.
 
--   That's good enough for me. Now everyone, rehearse your parts.Pyramus you are first. 
+Wait, I've got Wi-Fi!
 
-PUCK enters. 
+*(everyone in unison)* Phewww.
 
--   That are these peeps swaggering here so close to the fairy queen. Are they putting on a play. 
+B&Q does 1 day delivery. Is that good enough for you?
 
--   3, 2, 1, ACTION! 
+Anything cheaper?
 
--   (as Pyramus) Blah blah flowers blah blah odour blah blah.
+Homebase?
 
--   (as Pyramus) Blah Blah, wait I heard something! I'll be back soon. 
+That's good enough for me. Now everyone, rehearse your parts. Pyramus you are first.
 
-BOTTOM exits. 
+*PUCK enters.*
 
--   Looks like I'll do something #random. 
+That are these peeps swaggering here so close to the fairy queen. Are they putting on a play.
 
-ROBIN exits. 
+3, 2, 1, ACTION!
 
--   Are I suppose to speak? 
+*(as Pyramus)* Blah blah flowers blah blah odour blah blah.
 
--   Yes, but Bottom thinks he has discovered a wild Pokémon! (sarcastically) 
+*(as Pyramus)* Blah Blah, wait I heard something! I'll be back soon.
 
--   Ok. (gets out his iPhone 5S) 
+*BOTTOM exits.*
 
-ROBIN enters with BOTTOM, with a donkey's head instead of a human head. 
+Looks like I'll do something #random.
 
--   (as PYRAMUS) If I were fair, Thisbe, I were only thine. 
+*ROBIN exits.*
 
--   What has happened to you, Bottom? But first, let me take a Selfie! This is going straight on Instagram! 
+Are I suppose to speak?
 
--   (selfie taken) Wait what... 
+Yes, but Bottom thinks he has discovered a wild Pokémon! *(sarcastically)*
 
--   Help! It's a monster! We're being haunted. Run, everyone, run! 
+Ok. *(gets out his iPhone 5S)*
 
-PUCK, QUINCE, FLUTE, SNUG, SNOUT, and STARVELING exit 
+*ROBIN enters with BOTTOM, with a donkey's head instead of a human head.*
 
--   What on earth is happening?  What do you they I've got on my head?  
+*(as PYRAMUS)* If I were fair, Thisbe, I were only thine.
 
--   I see what they're up to. They want to make an ass of me, to scare me if they can. But I won't leave this spot, no matter what they do. I'll walk up and down and sing a song, so they'll know I'm not afraid. 
+What has happened to you, Bottom? But first, let me take a Selfie! This is going straight on Instagram!
 
--   (singing) 
+*(selfie taken)* Wait what...
 
- I came in on a wrecking ball, 
+Help! It's a monster! We're being haunted. Run, everyone, run!
 
-I never hit so hard in love, 
+*PUCK, QUINCE, FLUTE, SNUG, SNOUT, and STARVELING exit*
 
-All I wanted was to break your walls, 
+What on earth is happening? What do you they I've got on my head?
 
-All you ever did was, wre-e-eck me? 
+I see what they're up to. They want to make an ass of me, to scare me if they can. But I won't leave this spot, no matter what they do. I'll walk up and down and sing a song, so they'll know I'm not afraid.
 
-(,etc.) 
+*(singing)*
 
--   Who wakes me from my sleep? 
+I came in on a wrecking ball,
 
-(carries on singing) 
+I never hit so hard in love,
 
--   On the first view to say, to swear, I love thee. 
+All I wanted was to break your walls,
 
--   You don't say. 
+All you ever did was, wre-e-eck me?
 
--   Thou art as wise as thou art beautiful. 
+*(,etc.)*
 
--   You sound Medieval. 
+Who wakes me from my sleep?
 
--   Don't bother wishing you could leave the forest, because you're going to stay here forever (Mr Burns voice.) And I'll turn you into a fairy. Come here Peasebottom, Cobweb, Moth and MustardSeed! 
+*(carries on singing)*
+
+On the first view to say, to swear, I love thee.
+
+You don't say.
+
+Thou art as wise as thou art beautiful.
+
+You sound Medieval.
+
+Don't bother wishing you could leave the forest, because you're going to stay here forever *(Mr Burns voice.)* And I'll turn you into a fairy. Come here Peasebottom, Cobweb, Moth and MustardSeed!
+
+::
 
 ## Haunted House, Year 7
 
-Characters: Main Character 1 _________________: Yash Agrawal                     Main Character 2 _________________: Daniel Chong                     Ghost or __________________________: Brennan Goh                     Zombie or ________________________: Martin He                     Phantom or ______________________: Suyash Srivastava       Creepy ___________________________: Joshua JosephAbbreviations Guide:mc1 = Main Character 1mc2 = Main Character 2   g1= Ghost #1   z1= Zombie #1   p1=Phantom #1   s1= _____________#1Scene 1: Haunted House Arrival( mc1 is dared by mc2 to visit the haunted house. Thinking he is trying to scare you as a trick, mc1follows and adheres to these terms and agrees to go down to the house with mc2.)Part 1 : Arrival(Close to scene of mc1 and mc2 walking to the haunted house.)mc2 : Are you scared?(emphasise the word scared)(Stomping Feet, Head down)mc1 : No, I ain’t scared, can you please shut up now?(emphasising now and asking as if tired of listening to him and really bored)(Wait for an awkward silence, soon haunted house comes into view)(Pause)mc2 : Well, here we are! Are you... (interrupted by mc1)(mockingly and enthusiastically)(come in immediately, turn to look at mc2)mc1 : Shut up! You’ve been like this all afternoon!(angrily, growing amount of anger)(mc2 opens the gate, g1/z1/p1/s1 ______, makes door creak sound)
-Part 2: Front Doormc2 : Ladies first. After you!(insistently)mc1 : No, after you!(mockingly, and slightly louder)mc2: No after you!(much louder, nearly shouting, insistently)mc1 : No, (pause) after you!(crescendoing towards the end, shouting loudly and naggingly)(Shout ‘Sure!’)mc2: Sure! ‘Cos I’m not scared!(taking advantage of mc1’s insistence)(mc2 runs and goes inside haunted house opening the door)(Pause)mc1: Hey! Wait for me!Scene 2: In the Haunted HousePart 1: Scared!(mc1 and mc2 are in the house, notice the cobwebs everywhere and the absence of light.)(g1/z1/p1/s1 ______ imitate sound of door closing behind them)mc1 :  Where are we ? It’s getting pretty dark now.(reluctantly taking a step in)mc2: How am I suppose to know?(saying as a question)(Lights flicker, come on, then off, then on, revealing a door ahead)(Pause, say line shocked.)mc2: God! What was that? With the lights?(g1 appears, scares mc2)mc1 : Are you scared?(Suddenly, g1 jumps up at mc2, mc2 screams)*Freeze - Frame, thought*
-(Everybody freezes, but g1 gets up and says:)g1: What are these idiots doing in my haunted house?(g1 returns to freeze frame, freeze frame ends)*THOUGHT ENDS*g1 : (Speak ununderstandable dialect)mc2: Let’s get out of here, quick!(hastily)(mc1 and mc2 hastily run to the door which was revealed by the sudden return of light)Part 2: Unexpected Encounter(panting, out of breath, mc1 and mc2)mc2: Safe at last!(z1 and p1 enter)z1: errrrrrrrrrrr!(mumbling)(louder)p1: errrrrrrrrrrr!(directing towards mc1 and mc2, g1 enters)z1, p1, g1: errrrrrrrrrrr!(mc1 and mc2 look horrified)*Freeze - Frame, thought*(Everybody freezes, but z1 gets up and says:)z1: So these are those idiots ___________ warned me about!(g1 returns to freeze frame, p1 gets up)p1: Who are these people anyway! This is awkward!)(g1 returns to freeze frame, freeze frame ends.)*THOUGHT ENDS*z1,g1,p1: Get out of here!
-Scene 3: EscapePart 1: Loss( mc1 and mc2 are chased out by  z1, g1 and p1)(Suddenly, s1 jumps up at mc1 and tackles him to the ground)s1: Muahahahaha!(s1 ‘kills’ mc1, g1 stays with mc1 while others chase mc2 out)(mc2, traumatised, runs out, scene ends)
+### Characters
+
+- **Main Character 1:** Yash Agrawal
+- **Main Character 2:** Daniel Chong
+- **Ghost:** Brennan Goh
+- **Zombie:** Martin He
+- **Phantom:** Suyash Srivastava
+- **Creepy:** Joshua Joseph
+
+### Abbreviations Guide
+
+- **MC1** = Main Character 1
+- **MC2** = Main Character 2
+- **G1** = Ghost #1
+- **Z1** = Zombie #1
+- **P1** = Phantom #1
+- **S1** = Creepy #1
+
+::instrument
+
+### Scene 1: Haunted House Arrival
+
+*(MC1 is dared by MC2 to visit the haunted house. Thinking he is trying to scare you as a trick, MC1 follows and adheres to these terms and agrees to go down to the house with MC2.)*
+
+#### Part 1: Arrival
+
+*(Close to scene of MC1 and MC2 walking to the haunted house.)*
+
+**MC2:** Are you scared? *(emphasise the word scared)*
+
+*(Stomping feet, head down)*
+
+**MC1:** No, I ain’t scared, can you please shut up now? *(emphasising now and asking as if tired of listening to him and really bored)*
+
+*(Wait for an awkward silence, soon haunted house comes into view)*
+
+*(Pause)*
+
+**MC2:** Well, here we are! Are you... *(interrupted by MC1)* *(mockingly and enthusiastically)*
+
+*(Come in immediately, turn to look at MC2)*
+
+**MC1:** Shut up! You’ve been like this all afternoon! *(angrily, growing amount of anger)*
+
+*(MC2 opens the gate, G1/Z1/P1/S1 ______, makes door creak sound)*
+
+#### Part 2: Front Door
+
+**MC2:** Ladies first. After you! *(insistently)*
+
+**MC1:** No, after you! *(mockingly, and slightly louder)*
+
+**MC2:** No after you! *(much louder, nearly shouting, insistently)*
+
+**MC1:** No, *(pause)* after you! *(crescendoing towards the end, shouting loudly and naggingly)*
+
+*(Shout ‘Sure!’)*
+
+**MC2:** Sure! ‘Cos I’m not scared! *(taking advantage of MC1’s insistence)*
+
+*(MC2 runs and goes inside haunted house opening the door)*
+
+*(Pause)*
+
+**MC1:** Hey! Wait for me!
+
+### Scene 2: In the Haunted House
+
+#### Part 1: Scared!
+
+*(MC1 and MC2 are in the house, notice the cobwebs everywhere and the absence of light.)*
+
+*(G1/Z1/P1/S1 ______ imitate sound of door closing behind them)*
+
+**MC1:** Where are we? It’s getting pretty dark now. *(reluctantly taking a step in)*
+
+**MC2:** How am I suppose to know? *(saying as a question)*
+
+*(Lights flicker, come on, then off, then on, revealing a door ahead)*
+
+*(Pause, say line shocked.)*
+
+**MC2:** God! What was that? With the lights?
+
+*(G1 appears, scares MC2)*
+
+**MC1:** Are you scared?
+
+*(Suddenly, G1 jumps up at MC2, MC2 screams)*
+
+*Freeze-frame, thought*
+
+*(Everybody freezes, but G1 gets up and says:)*
+
+**G1:** What are these idiots doing in my haunted house?
+
+*(G1 returns to freeze frame, freeze frame ends)*
+
+*Thought ends*
+
+**G1:** *(speaks an ununderstandable dialect)*
+
+**MC2:** Let’s get out of here, quick! *(hastily)*
+
+*(MC1 and MC2 hastily run to the door which was revealed by the sudden return of light)*
+
+#### Part 2: Unexpected Encounter
+
+*(Panting, out of breath, MC1 and MC2)*
+
+**MC2:** Safe at last!
+
+*(Z1 and P1 enter)*
+
+**Z1:** errrrrrrrrrrr! *(mumbling)*
+
+*(louder)*
+
+**P1:** errrrrrrrrrrr! *(directing towards MC1 and MC2, G1 enters)*
+
+**Z1, P1, G1:** errrrrrrrrrrr!
+
+*(MC1 and MC2 look horrified)*
+
+*Freeze-frame, thought*
+
+*(Everybody freezes, but Z1 gets up and says:)*
+
+**Z1:** So these are those idiots ___________ warned me about!
+
+*(G1 returns to freeze frame, P1 gets up)*
+
+**P1:** Who are these people anyway! This is awkward!
+
+*(G1 returns to freeze frame, freeze frame ends.)*
+
+*Thought ends*
+
+**Z1, G1, P1:** Get out of here!
+
+### Scene 3: Escape
+
+#### Part 1: Loss
+
+*(MC1 and MC2 are chased out by Z1, G1 and P1)*
+
+*(Suddenly, S1 jumps up at MC1 and tackles him to the ground)*
+
+**S1:** Muahahahaha!
+
+*(S1 ‘kills’ MC1, G1 stays with MC1 while others chase MC2 out)*
+
+*(MC2, traumatised, runs out, scene ends)*
+
+::
 
 ___
 
 ## English Drama Script
 
-CHARACTERS:  Benedict Batchcoombe, Sebastian Cumberland
+**CHARACTERS:** Benedict Batchcoombe, Sebastian Cumberland
 
 These two are roommates with the older already in Cambridge (Sebastian.) Benedict has applied to Cambridge and is receiving the letter soon
 
 ___
 
-(Enter Sebastian)
+::instrument
 
-(S picks up mail)
+*(Enter Sebastian)*
 
-S: Mail... Mail... Driving licence... Junk... Cambridge!
+*(S picks up mail)*
 
-(Opens letter and reads aloud)
+**S:** Mail... Mail... Driving licence... Junk... Cambridge!
+
+*(Opens letter and reads aloud)*
 
 Dear Mr Benedict Batchcoombe,
 
@@ -496,66 +657,68 @@ Sepp Blatter, Head of Application
 
 Oh... Benedict.
 
-(Enter Benedict, sleepily)
+*(Enter Benedict, sleepily)*
 
-(He sees the mail and gets excited)
+*(He sees the mail and gets excited)*
 
-B: Has it arrived yet, my Cambridge letter.
+**B:** Has it arrived yet, my Cambridge letter.
 
-S: Yes. But-
+**S:** Yes. But-
 
-B: How was it!!
+**B:** How was it!!
 
-S: Why don’t I take you out for lunch?
+**S:** Why don’t I take you out for lunch?
 
-B: Nah. Just tell me.
+**B:** Nah. Just tell me.
 
-S: I’ll pay.
+**S:** I’ll pay.
 
-B: Fine. Let’s go.
+**B:** Fine. Let’s go.
 
-(They leave and go and sit down outside a café.)
+*(They leave and go and sit down outside a café.)*
 
-B: So...
+**B:** So...
 
-(S sighs and is about to hand over the letter)
+*(S sighs and is about to hand over the letter)*
 
-B: How was your invitation to Cambridge?
+**B:** How was your invitation to Cambridge?
 
-S: It was the best day of my life, learning that I had a place in King’s College for Quantum Biology and that I got into the choir.
+**S:** It was the best day of my life, learning that I had a place in King’s College for Quantum Biology and that I got into the choir.
 
-B: Can I see my letter...
+**B:** Can I see my letter...
 
-S: (Sighs and hands over blank paper.)
+**S:** *(Sighs and hands over blank paper.)*
 
-B: It’s blank.
+**B:** It’s blank.
 
-S: (Sighs) Fine...
+**S:** *(Sighs)* Fine...
 
-(S hands over the real paper.)
+*(S hands over the real paper.)*
 
-B: (reads for a few seconds, cries) my life is ruined! There is no point in living!
+**B:** *(reads for a few seconds, cries)* my life is ruined! There is no point in living!
 
-S: It isn’t that bad. You can reapply next year.
+**S:** It isn’t that bad. You can reapply next year.
 
-B: Then I’ll be the guy that failed even if I do get in.
+**B:** Then I’ll be the guy that failed even if I do get in.
 
-S: Nobody died. You have to grow up. You’re making a scene.
+**S:** Nobody died. You have to grow up. You’re making a scene.
 
-B: My mum died.
+**B:** My mum died.
 
-S: Aww... When.
+**S:** Aww... When.
 
-B: 17 years ago!
+**B:** 17 years ago!
 
-S: But you’re 17!
+**S:** But you’re 17!
 
-B: I know.
+**B:** I know.
 
-S: Come on. Cheer up. At least you got into UCL.
+**S:** Come on. Cheer up. At least you got into UCL.
 
-B: (Cheers up a bit.) I did?
+**B:** *(Cheers up a bit.)* I did?
 
-S: Yes. The letter came a few days ago. I didn’t want to tell you until we got the Cambridge one. Come on, be hopeful. Look to the future. You could get in later. You might even get to do a post doc there. Count your blessings! Now come on, your coffee is cold.
+**S:** Yes. The letter came a few days ago. I didn’t want to tell you until we got the Cambridge one. Come on, be hopeful. Look to the future. You could get in later. You might even get to do a post doc there. Count your blessings! Now come on, your coffee is cold.
+
+::
 
 ___
