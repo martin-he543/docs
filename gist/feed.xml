@@ -6,11 +6,25 @@
     <description>Gist-style snippets from docs.martinhe.co.uk/gist</description>
     <language>en</language>
     <item>
-      <title>Everyday helpers</title>
-      <link>https://docs.martinhe.co.uk/gist/post.html?post=2026-08-16-everyday-helpers.md</link>
-      <guid isPermaLink="true">https://docs.martinhe.co.uk/gist/post.html?post=2026-08-16-everyday-helpers.md</guid>
+      <title>YouTube Music Userscripts</title>
+      <link>https://docs.martinhe.co.uk/gist/post.html?post=2026-08-16-youtube-music.md</link>
+      <guid isPermaLink="true">https://docs.martinhe.co.uk/gist/post.html?post=2026-08-16-youtube-music.md</guid>
       <pubDate>Sun, 16 Aug 2026 00:00:00 GMT</pubDate>
-      <description>A sample gist: small debounce, clamp, and retry helpers I keep reaching for.</description>
+      <description>Remove bloatware from YouTube Music web player.</description>
+    </item>
+    <item>
+      <title>WaniKani Userscripts</title>
+      <link>https://docs.martinhe.co.uk/gist/post.html?post=2026-08-16-wanikani.md</link>
+      <guid isPermaLink="true">https://docs.martinhe.co.uk/gist/post.html?post=2026-08-16-wanikani.md</guid>
+      <pubDate>Sun, 16 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Extending the functionality of WaniKani.</description>
+    </item>
+    <item>
+      <title>Memrise Userscripts</title>
+      <link>https://docs.martinhe.co.uk/gist/post.html?post=2026-08-16-memrise.md</link>
+      <guid isPermaLink="true">https://docs.martinhe.co.uk/gist/post.html?post=2026-08-16-memrise.md</guid>
+      <pubDate>Sun, 16 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Extending the functionality of Memrise Community Courses.</description>
     </item>
   </channel>
 </rss>
