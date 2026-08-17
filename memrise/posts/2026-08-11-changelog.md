@@ -435,8 +435,8 @@ Creating a Mem no longer defaults to public.
 **[Android] [Mems] See the AI image before you save the Mem.**
 AI image generation now matches web: you can preview the image before creating the Mem.
 
-**[iOS] Spring-cleaning dashboard is the dashboard.**
-The feature flag that gated the spring-clean redesign is removed — everyone gets the new layout.
+**[iOS] New dashboard is the dashboard.**
+The feature flag that gated the dashboard redesign is removed — everyone gets the new layout.
 
 **[iOS] [Learning] Lookalike characters no longer fail typing / tapping.**
 If you type 一 vs ー, or a Cyrillic/Greek letter that looks identical to Latin, both answers go through a shared confusable map before scoring. Multiple choice is unchanged. Same map as web and Android.
@@ -553,8 +553,8 @@ The community wordlists screen observes Pro status, so locked / unlocked state u
 
 #### June 23rd, 2026 (Tuesday)
 
-**[Web Core App] Spring cleaning is the dashboard.**
-The spring-cleaning dashboard was an experiment. The old layout is gone — everyone gets the new Home / Learn / Speak / Explore experience.
+**[Web Core App] New dashboard is the default.**
+The new Home / Learn / Speak / Explore dashboard was an experiment. The old layout is gone — everyone gets the new experience.
 
 **[Web Core App] Next-lesson card: video with a local, plus the next words.**
 On the Start next lesson card we now show the immersion video when there is one, and list the next 5 learnables.
@@ -656,14 +656,14 @@ Plans (and the dashboard banner) come from `POST /v1/marketing/plans_page/config
 
 #### June 11th, 2026 (Thursday)
 
-**[Web Core App] Spring cleaning for existing users.**
-After a same-day revert (the Scenario button was too hard to find for 2024 users), spring cleaning is opened to older users as well as new ones.
+**[Web Core App] New dashboard for existing users.**
+After a same-day revert (the Scenario button was too hard to find for 2024 users), the new dashboard is opened to older users as well as new ones.
 
 **[Web Core App] Conversations show topics, and you filter by topic.**
-Conversation cards now show the topic name (translated by the backend) instead of an unexplained “Mission” or “Chat” label. Filtering is by topic rather than Chats vs Missions, including on the spring-cleaning dashboard. We also removed the “Membot – Powered by AI” button, which pointed at a dead Zendesk page.
+Conversation cards now show the topic name (translated by the backend) instead of an unexplained “Mission” or “Chat” label. Filtering is by topic rather than Chats vs Missions, including on the new dashboard. We also removed the “Membot – Powered by AI” button, which pointed at a dead Zendesk page.
 
 **[Web Core App] Pre-mission copy, and Conversations is easier to land on.**
-Updated the copy on the pre-mission screen, and added intro text at the top of the Conversations page. Fixed the Scenario tab sending some spring-cleaning (2024) users back to the dashboard by mistake.
+Updated the copy on the pre-mission screen, and added intro text at the top of the Conversations page. Fixed the Scenario tab sending some new-dashboard (2024) users back to the dashboard by mistake.
 
 **[Android] [Learning] Report an issue.**
 Learners can report a problem from the learning experience (same idea as web’s session-header report button).
@@ -673,8 +673,8 @@ Dark mode on the new surfaces is corrected.
 
 #### June 8th, 2026 (Monday)
 
-**[Web Core App] Spring cleaning for new users.**
-New web users (user id above 87502800) now get the spring-cleaning dashboard.
+**[Web Core App] New dashboard for new users.**
+New web users (user id above 87502800) now get the new Home / Learn / Speak / Explore dashboard.
 
 **[Web Core App] Stories, Talk Prep, and Buddies buttons work again.**
 Read Stories and Start Practicing were doing nothing on click — they now open Stories (Replit) and Talk Prep. The Buddies entry point was missing and is back.
@@ -701,7 +701,7 @@ The Video tab had disappeared from the sidebar (called out on Reddit). It’s vi
 **[Web Core App] [Plans] Condensed plans page, tuned for conversion.**
 Lifetime is first and pre-selected, with the “Best value” badge. Discounted plans show a strikethrough old price, “Save X%” where there’s a saving (including monthly), and clearer sub-text: pay once / billed yearly / cancel anytime. The selected Lifetime card has a pulsating glow. CTA is **Unlock Pro now**, with a flash-sale countdown banner, and the layout tightens on short screens so you don’t have to scroll. Stripe checkout has a back button to the plans page, and the top Pro benefits sit above the pay button.
 
-**[Web Core App] Spring cleaning polish (staging).**
+**[Web Core App] Dashboard polish (staging).**
 Visual pass on the new dashboard, plus the Explore tab now shows for languages that don’t have Buddies. This revamp was still staging-only at this point.
 
 **[Android] [Learning] “Actually, I was right”.**
@@ -709,10 +709,10 @@ After a wrong answer, learners can mark that they were actually right. Copy is l
 
 #### June 2nd, 2026 (Tuesday)
 
-**[Web Core App] Dashboard spring cleaning (staging).**
+**[Web Core App] Dashboard redesign (staging).**
 The dashboard is rearranged into Home, Learn, Speak, and Explore. Staging only for now — not the live dashboard for everyone.
 
-**[Android] Dashboard spring cleaning.**
+**[Android] Dashboard redesign.**
 New Home / Explore (and related) screens: AI Buddies card, Explore tab fixes, navigation and reload behaviour. This is the Android side of the dashboard rearrange.
 
 #### June 1st, 2026 (Monday)
