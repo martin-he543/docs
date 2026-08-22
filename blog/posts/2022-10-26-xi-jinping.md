@@ -2,8 +2,9 @@
 
 ```post-data
 {
-  "date": "2023-10-26",
+  "date": "2022-10-26",
   "tags": [
+    "!unfinished",
     "shorts",
     "society",
     "archived"

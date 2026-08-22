@@ -117,6 +117,32 @@
     return out;
   }
 
+  // Matches a GFM table delimiter row, e.g. "|---|:---:|---:|" or "---|---".
+  function isTableSeparator(line) {
+    return /^\s*\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)*\|?\s*$/.test(line) && /-/.test(line);
+  }
+
+  // Splits a "| a | b |" row into ["a", "b"], respecting "\|" as a literal pipe.
+  function splitTableRow(line) {
+    var trimmed = line.trim().replace(/^\|/, "").replace(/\|$/, "");
+    var cells = [];
+    var current = "";
+    for (var idx = 0; idx < trimmed.length; idx++) {
+      var ch = trimmed.charAt(idx);
+      if (ch === "\\" && trimmed.charAt(idx + 1) === "|") {
+        current += "|";
+        idx++;
+      } else if (ch === "|") {
+        cells.push(current.trim());
+        current = "";
+      } else {
+        current += ch;
+      }
+    }
+    cells.push(current.trim());
+    return cells;
+  }
+
   function isChangelogEntryLine(line) {
     return /^\*\*\[[^\]]+\]/.test(line);
   }
@@ -214,6 +240,40 @@
         closeLists();
         html.push("<hr>");
         i++;
+        continue;
+      }
+
+      // Table: a header row followed by a |---|---| separator row.
+      if (i + 1 < lines.length && /\|/.test(line) && isTableSeparator(lines[i + 1])) {
+        flushParagraph();
+        closeLists();
+        var headerCells = splitTableRow(line);
+        var aligns = splitTableRow(lines[i + 1]).map(function (cell) {
+          var left = cell.charAt(0) === ":";
+          var right = cell.charAt(cell.length - 1) === ":";
+          if (left && right) return "center";
+          if (right) return "right";
+          if (left) return "left";
+          return "";
+        });
+        i += 2;
+        var bodyRows = [];
+        while (i < lines.length && lines[i].trim() !== "" && /\|/.test(lines[i])) {
+          bodyRows.push(splitTableRow(lines[i]));
+          i++;
+        }
+        var thCells = headerCells.map(function (cell, idx) {
+          var style = aligns[idx] ? ' style="text-align:' + aligns[idx] + '"' : "";
+          return "<th" + style + ">" + renderInline(cell) + "</th>";
+        }).join("");
+        var bodyHtml = bodyRows.map(function (row) {
+          var tds = row.map(function (cell, idx) {
+            var style = aligns[idx] ? ' style="text-align:' + aligns[idx] + '"' : "";
+            return "<td" + style + ">" + renderInline(cell) + "</td>";
+          }).join("");
+          return "<tr>" + tds + "</tr>";
+        }).join("");
+        html.push("<table><thead><tr>" + thCells + "</tr></thead><tbody>" + bodyHtml + "</tbody></table>");
         continue;
       }
 

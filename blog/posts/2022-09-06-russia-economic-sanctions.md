@@ -2,8 +2,9 @@
 
 ```post-data
 {
-  "date": "2022-10-06",
+  "date": "2022-09-06",
   "tags": [
+    "!unfinished",
     "op-ed",
     "politics",
     "geopolitik",
