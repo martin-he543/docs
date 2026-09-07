@@ -74,7 +74,8 @@
         "</div>" +
         '<div class="site-search-results"></div>' +
       "</div>" +
-      '<button type="button" id="theme-toggle" class="theme-toggle"></button>';
+      '<button type="button" id="theme-toggle" class="theme-toggle"></button>' +
+      '<span data-lyceum-switcher data-current="docs"></span>';
   }
 
   // Strips just enough markdown syntax to leave readable plain text for
@@ -414,6 +415,15 @@
     renderNav(root, { base: base });
     initSearch(root, base);
     initTheme(root);
+    if (!document.querySelector("script[data-lyceum-switcher-src]")) {
+      var script = document.createElement("script");
+      script.src = "https://martinhe.co.uk/switcher/switcher.js";
+      script.async = true;
+      script.dataset.lyceumSwitcherSrc = "1";
+      document.head.appendChild(script);
+    } else if (window.LyceumSwitcher) {
+      window.LyceumSwitcher.mountAll();
+    }
   }
 
   if (document.readyState === "loading") {
