@@ -2,6 +2,7 @@
   "use strict";
 
   // Traced from https://martinhe.co.uk/assets/icons/memrise.png via potrace.
+  // The Memrise nav entry is hidden; the pages under /memrise/ still work directly.
   var MEMRISE_LOGO_SVG =
     '<svg class="memrise-logo" viewBox="0 0 788 744" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
     '<g transform="translate(0,744) scale(0.1,-0.1)" fill="currentColor" stroke="none">' +
@@ -64,7 +65,6 @@
       '<a href="' + base + 'index.html" class="nav-link">' + HOME_ICON_SVG + '<span class="nav-label">Home</span></a>' +
       '<a href="' + base + 'blog/index.html" class="nav-link">' + BLOG_ICON_SVG + '<span class="nav-label">Blog</span></a>' +
       '<a href="' + base + 'gist/index.html" class="nav-link">' + SNIPPETS_ICON_SVG + '<span class="nav-label">Snippets</span></a>' +
-      '<a href="' + base + 'memrise/index.html" class="memrise-link">' + MEMRISE_LOGO_SVG + '<span class="nav-label">Memrise</span></a>' +
       '<div class="site-search">' +
         '<div class="site-search-glass">' +
           '<button type="button" class="site-search-toggle" aria-label="Search" aria-expanded="false">' +
