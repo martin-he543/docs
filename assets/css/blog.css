@@ -940,10 +940,15 @@ article.post-body h6 {
   transition: opacity 0.5s ease;
 }
 
-.site-nav,
 .bubbles-toggle-bar {
   position: relative;
   z-index: 1;
+}
+
+/* Keep the nav (and the Lyceum switcher dropdown) above page content. */
+.site-nav {
+  position: relative;
+  z-index: 1000;
 }
 
 /* iOS 26 liquid glass: frosted plate so metaballs refract through the copy. */
